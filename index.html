@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Jane Smith</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ── Business Card Overlay ─────────────────────────────── -->
+  <div id="card-overlay">
+    <div id="business-card">
+      <div class="card-top">
+        <div class="card-name">Dr. Jane Smith</div>
+        <div class="card-title">Associate Professor of Computational Biology</div>
+        <div class="card-affiliation">Department of Biology · University of Science</div>
+      </div>
+      <div class="card-bottom">
+        <div class="card-contact">
+          <span>jane.smith@university.edu</span>
+          <span class="sep">·</span>
+          <span>GitHub</span>
+          <span class="sep">·</span>
+          <span>Google Scholar</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Main Page ──────────────────────────────────────────── -->
+  <div id="main-page" class="hidden">
+
+    <aside id="side-panel">
+      <div class="panel-initials">
+        <span class="initials-short">JS</span>
+        <span class="initials-full">Dr. Jane Smith</span>
+      </div>
+      <nav class="panel-nav">
+        <ul>
+          <li><a href="#about"        title="About"><i class="fa-solid fa-user"></i><span class="nav-label">About</span></a></li>
+          <li><a href="#publications" title="Papers"><i class="fa-solid fa-file-lines"></i><span class="nav-label">Papers</span></a></li>
+          <li><a href="#projects"     title="Projects"><i class="fa-solid fa-folder"></i><span class="nav-label">Projects</span></a></li>
+          <li><a href="#talks"        title="Talks"><i class="fa-solid fa-microphone"></i><span class="nav-label">Talks</span></a></li>
+          <li><a href="#contact"      title="Contact"><i class="fa-solid fa-envelope"></i><span class="nav-label">Contact</span></a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main id="content">
+
+      <section id="about" class="profile-header">
+        <h1 class="profile-name">Dr. Jane Smith</h1>
+        <p class="profile-title">Associate Professor of Computational Biology</p>
+        <p class="profile-affiliation">Department of Biology · University of Science</p>
+        <p class="profile-bio">
+          I am a computational biologist working at the intersection of machine learning
+          and genomics. My research develops algorithms for decoding gene regulatory networks
+          and understanding their role in disease. Previously I was a postdoctoral fellow
+          at the Broad Institute, MIT &amp; Harvard.
+        </p>
+      </section>
+
+      <section id="publications" class="collapsible-section">
+        <div class="section-header">
+          <h2>Publications</h2>
+          <span class="toggle-icon">▾</span>
+        </div>
+        <div class="section-body">
+          <div class="publication">
+            <div class="pub-title">Deep learning models for predicting gene expression from chromatin accessibility</div>
+            <div class="pub-meta">Smith J., Doe J., et al. — <em>Nature Methods</em>, 2024</div>
+          </div>
+          <div class="publication">
+            <div class="pub-title">Graph neural networks reveal latent structure in single-cell transcriptomics</div>
+            <div class="pub-meta">Smith J., Brown A., et al. — <em>Cell Systems</em>, 2023</div>
+          </div>
+          <div class="publication">
+            <div class="pub-title">A unified framework for multi-omics data integration</div>
+            <div class="pub-meta">Doe J., Smith J., et al. — <em>Genome Biology</em>, 2022</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="collapsible-section">
+        <div class="section-header">
+          <h2>Projects</h2>
+          <span class="toggle-icon">▾</span>
+        </div>
+        <div class="section-body">
+          <div class="project">
+            <div class="project-name">RegNet</div>
+            <div class="project-desc">A Python library for learning gene regulatory networks from single-cell RNA-seq data.</div>
+          </div>
+          <div class="project">
+            <div class="project-name">OmicsDB</div>
+            <div class="project-desc">A curated database of multi-omics datasets for benchmarking machine learning methods.</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="talks" class="collapsible-section">
+        <div class="section-header">
+          <h2>Talks &amp; Presentations</h2>
+          <span class="toggle-icon">▾</span>
+        </div>
+        <div class="section-body">
+          <div class="talk">
+            <div class="talk-title">Machine Learning in Genomics — ISMB 2024</div>
+            <div class="talk-meta">Keynote · July 2024</div>
+          </div>
+          <div class="talk">
+            <div class="talk-title">Single-cell multiomics: challenges and opportunities</div>
+            <div class="talk-meta">Cold Spring Harbor Laboratory · March 2023</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="collapsible-section">
+        <div class="section-header">
+          <h2>Contact</h2>
+          <span class="toggle-icon">▾</span>
+        </div>
+        <div class="section-body">
+          <div class="contact-info">
+            <div>jane.smith@university.edu</div>
+            <div>Office: Science Building A, Room 301</div>
+            <div>University of Science · 123 Science Drive · City, ST 00000</div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
