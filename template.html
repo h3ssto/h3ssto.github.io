@@ -182,7 +182,8 @@
         <div class="section-body">
           {% for s in service %}
           <div class="service-entry">
-            <span class="service-category">{{ s.category }}:</span> {{ s.entries }}
+            <span class="service-category">{{ s.category }}</span>
+            <span>{{ s.entries }}</span>
           </div>
           {% endfor %}
         </div>
@@ -248,9 +249,9 @@
         </div>
         <div class="section-body">
           <div class="contact-info">
-            <div>{{ contact.email }}</div>
-            <div>Office: {{ contact.office }}</div>
-            <div>{{ contact.address }}</div>
+            <div class="service-entry"><span class="service-category">E-Mail</span><a href="mailto:{{ contact.email }}">{{ contact.email }}</a></div>
+            <div class="service-entry"><span class="service-category">Office</span><span>{{ contact.office }}</span></div>
+            <div class="service-entry"><span class="service-category">Address</span><span>{{ contact.address }}</span></div>
           </div>
         </div>
       </section>

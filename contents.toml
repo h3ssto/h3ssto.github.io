@@ -1,7 +1,7 @@
 # ── Business card ────────────────────────────────────────────────────────────
 [card]
 name        = "Tobias Heß"
-title       = "Akademischer Mitarbeiter"
+title       = "Academic Staff"
 affiliation = "DHBW Heidenheim"
 email       = "tobias.hess@dhbw-heidenheim.de"
 github_url   = "https://github.com/h3ssto"
@@ -12,13 +12,16 @@ linkedin_url = "https://www.linkedin.com/in/tobias-he%C3%9F-6aa97635a/"
 [profile]
 name        = "Tobias Heß"
 initials    = "TH"
-title       = "Akademischer Mitarbeiter"
+title       = "Academic Staff"
 affiliation = "DHBW Heidenheim"
 # photo_crop  = "50% 50%"
 
 bio = """
-After graduating with a master's degree in mathematics, I am currently pursuing my PhD in computer science at the University of Ulm, Germany. 
-My primary reasearch focus is the analysis of configurable (software) systems, typically by means of knowledge compilation, especially binary decision diagrams.
+After graduating with a master's degree in mathematics from the University of Ulm, Germany, I am currently pursuing a PhD in computer science, also at the University of Ulm. 
+My reasearch focus is the analysis of configurable (software) systems, typically by means of knowledge compilation, especially binary decision diagrams.
+
+I currently work as a lecturer and system administrator at the [Baden-Wuerttemberg Cooperative State University (DHBW) Heidenheim](https://www.heidenheim.dhbw.de/en/home). 
+Therein, my core responsibility is the creation of interdisciplinary concepts and systems spanning multiple study programs.
 """
 
 # ── Working Experience ────────────────────────────────────────────────────────
