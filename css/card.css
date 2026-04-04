@@ -1,0 +1,115 @@
+/* ============================================================
+   Business Card — fully self-contained, no page token deps
+   ============================================================ */
+
+/* Overlay backdrop */
+#card-overlay {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(10, 18, 26, 0.66);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: 100;
+  cursor: default;
+  transition: opacity 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#card-overlay.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Card surface — 85×55mm at 96dpi × 1.5 display scale */
+#business-card {
+  width: 480px;
+  min-height: 312px;
+  padding: 1.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: 'Playfair Display', Georgia, serif;
+  background-color: #FFFFFF;
+  background-image: url('paper-noise.svg');
+  background-repeat: repeat;
+  background-size: 250px 250px;
+  border-top: 2px solid #3672A0;
+  box-shadow:
+    0 2px 8px  rgba(0, 0, 0, 0.28),
+    0 12px 40px rgba(0, 0, 0, 0.22);
+  cursor: default;
+  transition: opacity 0.2s ease;
+}
+
+#business-card.exit {
+  transform: rotate(10deg) scale(0.88) translateY(12px);
+  opacity: 0;
+  transition: transform 0.48s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity    0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Name block — top-anchored, vertical rhythm between elements */
+.card-name {
+  font-size: 1.55rem;
+  font-weight: 600;
+  color: #06080B;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.55rem;
+}
+
+.card-title {
+  font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  font-size: 0.6rem;
+  font-weight: 400;
+  color: #1660A8;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+
+.card-affiliation {
+  font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  font-size: 0.66rem;
+  color: #3A4A56;
+  letter-spacing: 0.01em;
+}
+
+/* Contact strip — pushed to bottom, clearly separated from name block */
+.card-bottom {
+  margin-top: auto;
+  padding-top: 0.75rem;
+  border-top: 1px solid #D4E4EE;
+}
+
+.card-contact {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  font-size: 0.64rem;
+  color: #3A4A56;
+  min-width: 0;
+}
+
+.card-contact a {
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.card-contact a:hover {
+  color: #1660A8;
+}
+
+.card-contact .sep {
+  color: #B8CCDA;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.card-contact i {
+  font-size: 0.95rem;
+}

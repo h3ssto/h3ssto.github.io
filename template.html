@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ profile.name }}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/card.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ── Profile Picture Modal ────────────────────────────── -->
+  <div id="profile-pic-modal">
+    <img src="profile.jpg" alt="{{ profile.name }}">
+  </div>
+
+  <!-- ── Business Card Overlay ─────────────────────────────── -->
+  <div id="card-overlay">
+    <div id="business-card">
+      <div class="card-top">
+        <div class="card-name">{{ card.name }}</div>
+        <div class="card-title">{{ card.title }}</div>
+        <div class="card-affiliation">{{ card.affiliation }}</div>
+      </div>
+      <div class="card-bottom">
+        <div class="card-contact">
+          <a href="mailto:{{ card.email }}">{{ card.email }}</a>
+          <span class="sep">·</span>
+          <a href="{{ card.github_url }}" target="_blank" rel="noopener" title="GitHub"><i class="fa-brands fa-github"></i></a>
+          <span class="sep">·</span>
+          <a href="{{ card.scholar_url }}" target="_blank" rel="noopener" title="Google Scholar"><i class="fa-brands fa-google-scholar"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Main Page ──────────────────────────────────────────── -->
+  <div id="main-page">
+
+    <aside id="side-panel">
+      <div class="panel-initials">
+        <span class="initials-short">{{ profile.initials }}</span>
+        <span class="initials-full">{{ profile.name }}</span>
+      </div>
+      <nav class="panel-nav">
+        <ul>
+          <li><a href="#about" title="About"><i class="fa-solid fa-user"></i><span class="nav-label">About</span></a></li>
+          {% if experience %}<li><a href="#experience" title="Experience"><i class="fa-solid fa-briefcase"></i><span class="nav-label">Experience</span></a></li>{% endif %}
+          {% if publications.first_author %}<li><a href="#publications" title="Papers"><i class="fa-solid fa-file-lines"></i><span class="nav-label">Papers</span></a></li>{% endif %}
+          {% if service %}<li><a href="#service" title="Service"><i class="fa-solid fa-people-group"></i><span class="nav-label">Service</span></a></li>{% endif %}
+          {% if projects %}<li><a href="#projects" title="Projects"><i class="fa-solid fa-folder"></i><span class="nav-label">Projects</span></a></li>{% endif %}
+          {% if talks %}<li><a href="#talks" title="Talks"><i class="fa-solid fa-microphone"></i><span class="nav-label">Talks</span></a></li>{% endif %}
+          {% if education %}<li><a href="#education" title="Education"><i class="fa-solid fa-graduation-cap"></i><span class="nav-label">Education</span></a></li>{% endif %}
+          <li><a href="#contact" title="Contact"><i class="fa-solid fa-envelope"></i><span class="nav-label">Contact</span></a></li>
+          <li><a href="#" id="show-card-btn" title="Business Card"><i class="fa-solid fa-address-card"></i><span class="nav-label">Card</span></a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main id="content">
+
+      <section id="about" class="profile-header">
+        <div class="profile-header-inner">
+          <div id="profile-pic-wrap">
+            <img id="profile-pic-thumb" src="profile.jpg" alt="{{ profile.name }}">
+          </div>
+          <div class="profile-header-text">
+            <div class="profile-name-row">
+              <h1 class="profile-name">{{ profile.name }}</h1>
+              <div class="profile-social">
+                <a href="{{ card.github_url }}"  target="_blank" rel="noopener" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="{{ card.scholar_url }}" target="_blank" rel="noopener" title="Google Scholar"><i class="fa-brands fa-google-scholar"></i></a>
+                <a href="{{ card.linkedin_url }}" target="_blank" rel="noopener" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+              </div>
+            </div>
+            <p class="profile-title">{{ profile.title }}</p>
+            <p class="profile-affiliation">{{ profile.affiliation }}</p>
+          </div>
+        </div>
+        <div class="profile-bio">{{ profile.bio | md }}</div>
+      </section>
+
+      {% if experience %}
+      <section id="experience" class="collapsible-section">
+        <div class="section-header">
+          <h2>Working Experience & Affiliations</h2>
+          <span class="toggle-icon collapsed">▾</span>
+        </div>
+        <div class="section-body">
+          {% for x in experience %}
+          <div class="experience-entry">
+            <div class="entry-primary">{{ x.role | md_inline | safe }}</div>
+            <div class="entry-secondary">
+              <span>{{ x.institution | md_inline | safe }}</span>
+              <span class="entry-period">{{ x.period }}</span>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+      {% endif %}
+
+      {% macro pub_entry(pub) %}
+      <div class="publication{% if pub.overflow %} pub-overflow{% endif %}{% if pub.starred %} pub-starred{% endif %}">
+        <div class="pub-title-row">
+          <div class="pub-title">
+            {%- if pub.doi %}<a href="https://doi.org/{{ pub.doi }}" target="_blank" rel="noopener">{{ pub.title }}</a>
+            {%- else %}{{ pub.title }}{% endif %}
+            {%- if pub.artifact_badge_urls %}<span class="pub-badges">{%- for badge_url in pub.artifact_badge_urls %}<img class="pub-badge" src="{{ badge_url }}" alt="ACM Artifact Badge">{% endfor -%}</span>{% endif -%}
+          </div>
+          <div class="pub-actions">
+            <a class="pub-bib-link" data-bib="{{ pub.bib_text | e }}" data-bib-key="{{ pub.bib_key }}">BibTeX</a>
+            {%- if pub.artifact_url %}
+            <a class="pub-artifact-link" href="{{ pub.artifact_url }}" target="_blank" rel="noopener">Artifact</a>
+            {%- endif %}
+            {%- if pub.award_url %}
+            <a class="pub-artifact-link" href="{{ pub.award_url }}" target="_blank" rel="noopener">Award</a>
+            {%- endif %}
+          </div>
+        </div>
+        <div class="pub-meta-block">
+          <div class="pub-authors">{{ pub.authors_html | safe }}</div>
+          <div class="pub-venue"><em>{{ pub.venue }}</em></div>
+        </div>
+      </div>
+      {% endmacro %}
+
+      {% if publications.first_author %}
+      <section id="publications" class="collapsible-section">
+        <div class="section-header">
+          <h2>Publications as Primary Author ({{ publications.first_author_total }})</h2>
+          <span class="toggle-icon">▾</span>
+        </div>
+        <div class="section-body">
+          {% for group in publications.first_author %}
+          <div class="pub-year-group">
+            <div class="pub-year">{{ group.year }}</div>
+            {% for pub in group.pubs %}{{ pub_entry(pub) }}{% endfor %}
+          </div>
+          {% endfor %}
+          {% if publications.first_author_total > 5 %}
+          <button class="pub-show-all" data-total="{{ publications.first_author_total }}">
+            Show all {{ publications.first_author_total }} ▾
+          </button>
+          {% endif %}
+        </div>
+      </section>
+      {% endif %}
+
+      {% if publications.coauthor %}
+      <section id="other-publications" class="collapsible-section">
+        <div class="section-header">
+          <h2>Other Publications ({{ publications.coauthor_total }})</h2>
+          <span class="toggle-icon collapsed">▾</span>
+        </div>
+        <div class="section-body">
+          {% for group in publications.coauthor %}
+          <div class="pub-year-group">
+            <div class="pub-year">{{ group.year }}</div>
+            {% for pub in group.pubs %}{{ pub_entry(pub) }}{% endfor %}
+          </div>
+          {% endfor %}
+          {% if publications.coauthor_total > 5 %}
+          <button class="pub-show-all" data-total="{{ publications.coauthor_total }}">
+            Show all {{ publications.coauthor_total }} ▾
+          </button>
+          {% endif %}
+        </div>
+      </section>
+      {% endif %}
+
+      {% if service %}
+      <section id="service" class="collapsible-section">
+        <div class="section-header">
+          <h2>Academic Service</h2>
+          <span class="toggle-icon collapsed">▾</span>
+        </div>
+        <div class="section-body">
+          {% for s in service %}
+          <div class="service-entry">
+            <span class="service-category">{{ s.category }}:</span> {{ s.items }}
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+      {% endif %}
+
+      {% if projects %}
+      <section id="projects" class="collapsible-section">
+        <div class="section-header">
+          <h2>Projects</h2>
+          <span class="toggle-icon collapsed">▾</span>
+        </div>
+        <div class="section-body">
+          {% for project in projects %}
+          <div class="project">
+            <div class="project-name">{{ project.name }}</div>
+            <div class="project-desc">{{ project.description | md }}</div>
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+      {% endif %}
+
+      {% if talks %}
+      <section id="talks" class="collapsible-section">
+        <div class="section-header">
+          <h2>Talks &amp; Presentations</h2>
+          <span class="toggle-icon collapsed">▾</span>
+        </div>
+        <div class="section-body">
+          {% for talk in talks %}
+          <div class="talk">
+            <div class="talk-title">{{ talk.title }}</div>
+            <div class="talk-meta">{{ talk.meta }}</div>
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+      {% endif %}
+
+      {% if education %}
+      <section id="education" class="collapsible-section">
+        <div class="section-header">
+          <h2>Education</h2>
+          <span class="toggle-icon collapsed">▾</span>
+        </div>
+        <div class="section-body">
+          {% for e in education %}
+          <div class="education-entry">
+            <div class="entry-primary">{{ e.degree }}</div>
+            <div class="entry-secondary">{{ e.institution }}<span class="entry-period">{{ e.year }}</span></div>
+            {% if e.notes %}<div class="entry-notes">{{ e.notes }}</div>{% endif %}
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+      {% endif %}
+
+      <section id="contact" class="collapsible-section">
+        <div class="section-header">
+          <h2>Contact</h2>
+          <span class="toggle-icon">▾</span>
+        </div>
+        <div class="section-body">
+          <div class="contact-info">
+            <div>{{ contact.email }}</div>
+            <div>Office: {{ contact.office }}</div>
+            <div>{{ contact.address }}</div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

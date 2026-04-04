@@ -1,0 +1,132 @@
+# ── Business card ────────────────────────────────────────────────────────────
+[card]
+name        = "Tobias Heß"
+title       = "Akademischer Mitarbeiter"
+affiliation = "DHBW Heidenheim"
+email       = "tobias.hess@dhbw-heidenheim.de"
+github_url   = "https://github.com/h3ssto"
+scholar_url  = "https://scholar.google.com/citations?user=FcysjuwAAAAJ&hl=en"
+linkedin_url = "https://www.linkedin.com/in/tobias-he%C3%9F-6aa97635a/"
+
+# ── Sidebar & page header ────────────────────────────────────────────────────
+[profile]
+name        = "Tobias Heß"
+initials    = "TH"
+title       = "Akademischer Mitarbeiter"
+affiliation = "DHBW Heidenheim"
+# photo_crop  = "50% 50%"
+
+bio = """
+After graduating with a master's degree in mathematics, I am currently pursuing my PhD in computer science at the University of Ulm, Germany. 
+My primary reasearch focus is the analysis of configurable (software) systems, typically by means of knowledge compilation, especially binary decision diagrams.
+"""
+
+# ── Working Experience ────────────────────────────────────────────────────────
+
+[[experience]]
+period      = "10/2025 - present"
+role        = "Lecturer and System Administrator"
+institution = "DHBW Heidenheim"
+
+[[experience]]
+period      = "01/2025 - 07/2025"
+role        = "Substitute Teacher (Math)"
+institution = "Jakob-Friedrich-Schöllkopf-Schule"
+
+[[experience]]
+period      = "04/2024 - 10/2024"
+role        = "Research Assistant"
+institution = "[Institute for Theoretical Computer Science](https://www.uni-ulm.de/en/in/institute-of-theoretical-computer-science/), University of Ulm"
+
+[[experience]]
+period      = "12/2020 - 03/2024"
+role        = "Research Assistant, SoftVarE Working Group"
+institution = "University of Ulm"
+
+[[experience]]
+period      = "04/2021 - 04/2022"
+role        = "Interim System Administrator"
+institution = "[Institute for Software Engineering and Programming Languages](https://www.uni-ulm.de/in/sp/), University of Ulm"
+
+[[experience]]
+period      = "2020 - 2021"
+role        = "Developer"
+institution = "[FeatureIDE](https://featureide.github.io)"
+
+[[experience]]
+period      = "2016 - 2023"
+role        = "Teaching Assistant"
+institution = "University of Ulm"
+
+[[experience]]
+period      = "2013 - 2016"
+role        = "Tutor"
+institution = "University of Ulm"
+
+# ── Education ─────────────────────────────────────────────────────────────────
+[[education]]
+degree      = "PhD Candidate"
+institution = "University of Ulm"
+year        = "12/2021 – present"
+notes       = ""
+
+[[education]]
+degree      = "M.Sc. Mathematics"
+institution = "University of Ulm"
+year        = "2020"
+notes       = ""
+
+[[education]]
+degree      = "B.Sc. Mathematics"
+institution = "University of Ulm"
+year        = "2017"
+notes       = ""
+
+# ── Academic Service ──────────────────────────────────────────────────────────
+[[service]]
+category = "Journals"
+items    = "EMSE (A), TOSEM (A*), AUSE (B), SoSyM (B)"
+
+[[service]]
+category = "Conferences"
+items    = "GPCE'21 (B), SPLC'21 (B), VaMoS'22 (B), ISSTA'22 (A), SPLC'22 (B), ISSTA'23 (A)"
+
+[[service]]
+category = "Other"
+items    = "PR and Proceedings Chair for VaMoS'23"
+
+# ── Projects ─────────────────────────────────────────────────────────────────
+[[projects]]
+name        = "variability.dev"
+description = "A collection of easy-to-use tools for feature modeling and feature-model analyses."
+
+[[projects]]
+name        = "ddueruem"
+description = "A wrapper for feature-model analyses tools and frameworks."
+
+# ── Publications (starred keys get gold border) ───────────────────────────────
+[publications]
+starred = ["HMB+:SPLC25", "HSS+:SPLC24"]
+
+[[publications.artifacts]]
+key   = "HMB+:SPLC25"
+url   = "https://zenodo.org/records/15854995"
+badge = "available, reusable"
+award = "hmb+splc25.png"
+
+
+[[publications.artifacts]]
+key   = "HSS+:SPLC24"
+url   = "https://zenodo.org/records/11832023"
+badge = "available, reusable"
+
+[[publications.artifacts]]
+key   = "HSO+:VaMoS24"
+url   = "https://zenodo.org/records/10303558"
+badge = "available"
+
+# ── Contact ──────────────────────────────────────────────────────────────────
+[contact]
+email   = "tobias.hess@dhbw-heidenheim.de"
+office  = "DHBW Heidenheim, Digitalcampus, A3.10"
+address = "Hanns-Voith-Campus 1, 89520 Heidenheim an der Brenz"

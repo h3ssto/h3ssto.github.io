@@ -3,50 +3,60 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dr. Jane Smith</title>
+  <title>Tobias Heß</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/card.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+  <!-- ── Profile Picture Modal ────────────────────────────── -->
+  <div id="profile-pic-modal">
+    <img src="profile.jpg" alt="Tobias Heß">
+  </div>
 
   <!-- ── Business Card Overlay ─────────────────────────────── -->
   <div id="card-overlay">
     <div id="business-card">
       <div class="card-top">
-        <div class="card-name">Dr. Jane Smith</div>
-        <div class="card-title">Associate Professor of Computational Biology</div>
-        <div class="card-affiliation">Department of Biology · University of Science</div>
+        <div class="card-name">Tobias Heß</div>
+        <div class="card-title">Akademischer Mitarbeiter</div>
+        <div class="card-affiliation">DHBW Heidenheim</div>
       </div>
       <div class="card-bottom">
         <div class="card-contact">
-          <span>jane.smith@university.edu</span>
+          <a href="mailto:tobias.hess@dhbw-heidenheim.de">tobias.hess@dhbw-heidenheim.de</a>
           <span class="sep">·</span>
-          <span>GitHub</span>
+          <a href="https://github.com/h3ssto" target="_blank" rel="noopener" title="GitHub"><i class="fa-brands fa-github"></i></a>
           <span class="sep">·</span>
-          <span>Google Scholar</span>
+          <a href="https://scholar.google.com/citations?user=FcysjuwAAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar"><i class="fa-brands fa-google-scholar"></i></a>
         </div>
       </div>
     </div>
   </div>
 
   <!-- ── Main Page ──────────────────────────────────────────── -->
-  <div id="main-page" class="hidden">
+  <div id="main-page">
 
     <aside id="side-panel">
       <div class="panel-initials">
-        <span class="initials-short">JS</span>
-        <span class="initials-full">Dr. Jane Smith</span>
+        <span class="initials-short">TH</span>
+        <span class="initials-full">Tobias Heß</span>
       </div>
       <nav class="panel-nav">
         <ul>
-          <li><a href="#about"        title="About"><i class="fa-solid fa-user"></i><span class="nav-label">About</span></a></li>
+          <li><a href="#about" title="About"><i class="fa-solid fa-user"></i><span class="nav-label">About</span></a></li>
+          <li><a href="#experience" title="Experience"><i class="fa-solid fa-briefcase"></i><span class="nav-label">Experience</span></a></li>
           <li><a href="#publications" title="Papers"><i class="fa-solid fa-file-lines"></i><span class="nav-label">Papers</span></a></li>
-          <li><a href="#projects"     title="Projects"><i class="fa-solid fa-folder"></i><span class="nav-label">Projects</span></a></li>
-          <li><a href="#talks"        title="Talks"><i class="fa-solid fa-microphone"></i><span class="nav-label">Talks</span></a></li>
-          <li><a href="#contact"      title="Contact"><i class="fa-solid fa-envelope"></i><span class="nav-label">Contact</span></a></li>
+          <li><a href="#service" title="Service"><i class="fa-solid fa-people-group"></i><span class="nav-label">Service</span></a></li>
+          <li><a href="#projects" title="Projects"><i class="fa-solid fa-folder"></i><span class="nav-label">Projects</span></a></li>
+          
+          <li><a href="#education" title="Education"><i class="fa-solid fa-graduation-cap"></i><span class="nav-label">Education</span></a></li>
+          <li><a href="#contact" title="Contact"><i class="fa-solid fa-envelope"></i><span class="nav-label">Contact</span></a></li>
+          <li><a href="#" id="show-card-btn" title="Business Card"><i class="fa-solid fa-address-card"></i><span class="nav-label">Card</span></a></li>
         </ul>
       </nav>
     </aside>
@@ -54,71 +64,962 @@
     <main id="content">
 
       <section id="about" class="profile-header">
-        <h1 class="profile-name">Dr. Jane Smith</h1>
-        <p class="profile-title">Associate Professor of Computational Biology</p>
-        <p class="profile-affiliation">Department of Biology · University of Science</p>
-        <p class="profile-bio">
-          I am a computational biologist working at the intersection of machine learning
-          and genomics. My research develops algorithms for decoding gene regulatory networks
-          and understanding their role in disease. Previously I was a postdoctoral fellow
-          at the Broad Institute, MIT &amp; Harvard.
-        </p>
+        <div class="profile-header-inner">
+          <div id="profile-pic-wrap">
+            <img id="profile-pic-thumb" src="profile.jpg" alt="Tobias Heß">
+          </div>
+          <div class="profile-header-text">
+            <div class="profile-name-row">
+              <h1 class="profile-name">Tobias Heß</h1>
+              <div class="profile-social">
+                <a href="https://github.com/h3ssto"  target="_blank" rel="noopener" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="https://scholar.google.com/citations?user=FcysjuwAAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar"><i class="fa-brands fa-google-scholar"></i></a>
+                <a href="https://www.linkedin.com/in/tobias-he%C3%9F-6aa97635a/" target="_blank" rel="noopener" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+              </div>
+            </div>
+            <p class="profile-title">Akademischer Mitarbeiter</p>
+            <p class="profile-affiliation">DHBW Heidenheim</p>
+          </div>
+        </div>
+        <div class="profile-bio"><p>After graduating with a master&rsquo;s degree in mathematics, I am currently pursuing my PhD in computer science at the University of Ulm, Germany. 
+My primary reasearch focus is the analysis of configurable (software) systems, typically by means of knowledge compilation, especially binary decision diagrams.</p></div>
       </section>
 
+      
+      <section id="experience" class="collapsible-section">
+        <div class="section-header">
+          <h2>Working Experience & Affiliations</h2>
+          <span class="toggle-icon collapsed">▾</span>
+        </div>
+        <div class="section-body">
+          
+          <div class="experience-entry">
+            <div class="entry-primary">Lecturer and System Administrator</div>
+            <div class="entry-secondary">
+              <span>DHBW Heidenheim</span>
+              <span class="entry-period">10/2025 - present</span>
+            </div>
+          </div>
+          
+          <div class="experience-entry">
+            <div class="entry-primary">Substitute Teacher (Math)</div>
+            <div class="entry-secondary">
+              <span>Jakob-Friedrich-Schöllkopf-Schule</span>
+              <span class="entry-period">01/2025 - 07/2025</span>
+            </div>
+          </div>
+          
+          <div class="experience-entry">
+            <div class="entry-primary">Research Assistant</div>
+            <div class="entry-secondary">
+              <span><a href="https://www.uni-ulm.de/en/in/institute-of-theoretical-computer-science/">Institute for Theoretical Computer Science</a>, University of Ulm</span>
+              <span class="entry-period">04/2024 - 10/2024</span>
+            </div>
+          </div>
+          
+          <div class="experience-entry">
+            <div class="entry-primary">Research Assistant, SoftVarE Working Group</div>
+            <div class="entry-secondary">
+              <span>University of Ulm</span>
+              <span class="entry-period">12/2020 - 03/2024</span>
+            </div>
+          </div>
+          
+          <div class="experience-entry">
+            <div class="entry-primary">Interim System Administrator</div>
+            <div class="entry-secondary">
+              <span><a href="https://www.uni-ulm.de/in/sp/">Institute for Software Engineering and Programming Languages</a>, University of Ulm</span>
+              <span class="entry-period">04/2021 - 04/2022</span>
+            </div>
+          </div>
+          
+          <div class="experience-entry">
+            <div class="entry-primary">Developer</div>
+            <div class="entry-secondary">
+              <span><a href="https://featureide.github.io">FeatureIDE</a></span>
+              <span class="entry-period">2020 - 2021</span>
+            </div>
+          </div>
+          
+          <div class="experience-entry">
+            <div class="entry-primary">Teaching Assistant</div>
+            <div class="entry-secondary">
+              <span>University of Ulm</span>
+              <span class="entry-period">2016 - 2023</span>
+            </div>
+          </div>
+          
+          <div class="experience-entry">
+            <div class="entry-primary">Tutor</div>
+            <div class="entry-secondary">
+              <span>University of Ulm</span>
+              <span class="entry-period">2013 - 2016</span>
+            </div>
+          </div>
+          
+        </div>
+      </section>
+      
+
+      
+
+      
       <section id="publications" class="collapsible-section">
         <div class="section-header">
-          <h2>Publications</h2>
+          <h2>Publications as Primary Author (9)</h2>
           <span class="toggle-icon">▾</span>
         </div>
         <div class="section-body">
-          <div class="publication">
-            <div class="pub-title">Deep learning models for predicting gene expression from chromatin accessibility</div>
-            <div class="pub-meta">Smith J., Doe J., et al. — <em>Nature Methods</em>, 2024</div>
-          </div>
-          <div class="publication">
-            <div class="pub-title">Graph neural networks reveal latent structure in single-cell transcriptomics</div>
-            <div class="pub-meta">Smith J., Brown A., et al. — <em>Cell Systems</em>, 2023</div>
-          </div>
-          <div class="publication">
-            <div class="pub-title">A unified framework for multi-omics data integration</div>
-            <div class="pub-meta">Doe J., Smith J., et al. — <em>Genome Biology</em>, 2022</div>
+          
+          <div class="pub-year-group">
+            <div class="pub-year">2025</div>
+            
+      <div class="publication">
+        <div class="pub-title-row">
+          <div class="pub-title"><a href="https://doi.org/10.1145/3748269.3748491" target="_blank" rel="noopener">Improving Deterministic BDD Compilation with Counting-Free Computation of Atomic Sets</a></div>
+          <div class="pub-actions">
+            <a class="pub-bib-link" data-bib="@inproceedings{HM:SPLC25,
+  address = {New York, NY, USA},
+  author = {Heß, Tobias and Molt, Aaron},
+  booktitle = {Proc.\ Int&#39;l Systems and Software Product Line Conf.\ (SPLC)},
+  doi = {10.1145/3748269.3748491},
+  ektags = {knowledge compilation},
+  location = {A Coruña, Spain},
+  month = {September},
+  pages = {50--56},
+  publisher = {ACM},
+  title = {Improving Deterministic BDD Compilation with Counting-Free Computation of Atomic Sets},
+  year = {2025}
+}" data-bib-key="HM:SPLC25">BibTeX</a>
           </div>
         </div>
+        <div class="pub-meta-block">
+          <div class="pub-authors"><strong>Tobias Heß</strong>, <span class="pub-coauthor">Aaron Molt</span></div>
+          <div class="pub-venue"><em>Proceedings International Systems and Software Product Line Conference (SPLC)</em></div>
+        </div>
+      </div>
+      
+      <div class="publication pub-starred">
+        <div class="pub-title-row">
+          <div class="pub-title"><a href="https://doi.org/10.1145/3744915.3748469" target="_blank" rel="noopener">Pick Me: Judging Sample Quality with Binary Decision Diagrams</a><span class="pub-badges"><img class="pub-badge" src="https://www.acm.org/binaries/content/gallery/acm/publications/replication-badges/artifacts_available_dl.jpg" alt="ACM Artifact Badge"><img class="pub-badge" src="https://www.acm.org/binaries/content/gallery/acm/publications/replication-badges/artifacts_evaluated_reusable_dl.jpg" alt="ACM Artifact Badge"></span></div>
+          <div class="pub-actions">
+            <a class="pub-bib-link" data-bib="@inproceedings{HMB+:SPLC25,
+  address = {New York, NY, USA},
+  author = {Heß, Tobias and Molt, Aaron and Böhm, Sabrina and Krieter, Sebastian and Thüm, Thomas},
+  booktitle = {Proc.\ Int&#39;l Systems and Software Product Line Conf.\ (SPLC)},
+  doi = {10.1145/3744915.3748469},
+  ektags = {knowledge compilation},
+  location = {A Coruña, Spain},
+  month = {September},
+  pages = {117--128},
+  publisher = {ACM},
+  title = {Pick Me: Judging Sample Quality with Binary Decision Diagrams},
+  year = {2025}
+}" data-bib-key="HMB+:SPLC25">BibTeX</a>
+            <a class="pub-artifact-link" href="https://zenodo.org/records/15854995" target="_blank" rel="noopener">Artifact</a>
+            <a class="pub-artifact-link" href="awards/hmb+splc25.png" target="_blank" rel="noopener">Award</a>
+          </div>
+        </div>
+        <div class="pub-meta-block">
+          <div class="pub-authors"><strong>Tobias Heß</strong>, <span class="pub-coauthor">Aaron Molt</span>, <span class="pub-coauthor">Sabrina Böhm</span>, <span class="pub-coauthor">Sebastian Krieter</span>, <span class="pub-coauthor">Thomas Thüm</span></div>
+          <div class="pub-venue"><em>Proceedings International Systems and Software Product Line Conference (SPLC)</em></div>
+        </div>
+      </div>
+      
+      <div class="publication">
+        <div class="pub-title-row">
+          <div class="pub-title"><a href="https://doi.org/10.48550/arXiv.2501.12490" target="_blank" rel="noopener">A Fast Counting-Free Algorithm for Computing Atomic Sets in Feature Models</a></div>
+          <div class="pub-actions">
+            <a class="pub-bib-link" data-bib="@techreport{HM:TR25,
+  author = {Tobias Heß and Aaron Molt},
+  doi = {10.48550/arXiv.2501.12490},
+  ektags = {equivalence classes},
+  institution = {Cornell University Library},
+  number = {arXiv:2501.12490},
+  title = {A Fast Counting-Free Algorithm for Computing Atomic Sets in Feature Models},
+  year = {2025}
+}" data-bib-key="HM:TR25">BibTeX</a>
+          </div>
+        </div>
+        <div class="pub-meta-block">
+          <div class="pub-authors"><strong>Tobias Heß</strong>, <span class="pub-coauthor">Aaron Molt</span></div>
+          <div class="pub-venue"><em>Cornell University Library</em></div>
+        </div>
+      </div>
+      
+          </div>
+          
+          <div class="pub-year-group">
+            <div class="pub-year">2024</div>
+            
+      <div class="publication">
+        <div class="pub-title-row">
+          <div class="pub-title">variability.dev: Towards an Online Toolbox for Feature Modeling</div>
+          <div class="pub-actions">
+            <a class="pub-bib-link" data-bib="@inproceedings{HOB+:MODEVAR24,
+  author = {Heß, Tobias and Ostheimer, Lukas and Betz, Tobias and Karrer, Simon and Schmidt, Tim Jannik and Coquet, Pierre and Semmler, Sean and Thüm, Thomas},
+  booktitle = {Proc.\ Int&#39;l Workshop on Languages for Modelling Variability (MODEVAR)},
+  comments = {Will update once CRC available},
+  ektags = {tooling},
+  location = {Bern, Switzerland},
+  month = {February},
+  note = {To appear},
+  title = {variability.dev: Towards an Online Toolbox for Feature Modeling},
+  year = {2024}
+}" data-bib-key="HOB+:MODEVAR24">BibTeX</a>
+          </div>
+        </div>
+        <div class="pub-meta-block">
+          <div class="pub-authors"><strong>Tobias Heß</strong>, <span class="pub-coauthor">Lukas Ostheimer</span>, <span class="pub-coauthor">Tobias Betz</span>, <span class="pub-coauthor">Simon Karrer</span>, <span class="pub-coauthor">Tim Jannik Schmidt</span>, <span class="pub-coauthor">Pierre Coquet</span>, <span class="pub-coauthor">et al.</span></div>
+          <div class="pub-venue"><em>Proceedings International Workshop on Languages for Modelling Variability (MODEVAR)</em></div>
+        </div>
+      </div>
+      
+      <div class="publication">
+        <div class="pub-title-row">
+          <div class="pub-title"><a href="https://doi.org/10.1145/3646548.3676550" target="_blank" rel="noopener">Multi-Version Decision Propagation for Configuring Feature Models in Space and Time</a></div>
+          <div class="pub-actions">
+            <a class="pub-bib-link" data-bib="@inproceedings{HKO:SPLC24,
+  address = {New York, NY, USA},
+  author = {Heß, Tobias and Karrer, Simon and Ostheimer, Lukas},
+  booktitle = {Proc.\ Int&#39;l Systems and Software Product Line Conf.\ (SPLC)},
+  doi = {10.1145/3646548.3676550},
+  ektags = {differencing},
+  isbn = {9798400705939},
+  keywords = {Configuration, Decision Propagation, Feature Models, Feature-Model Evolution},
+  location = {Dommeldange, Luxembourg},
+  month = {September},
+  numpages = {5},
+  pages = {88--92},
+  publisher = {ACM},
+  title = {Multi-Version Decision Propagation for Configuring Feature Models in Space and Time},
+  year = {2024}
+}" data-bib-key="HKO:SPLC24">BibTeX</a>
+          </div>
+        </div>
+        <div class="pub-meta-block">
+          <div class="pub-authors"><strong>Tobias Heß</strong>, <span class="pub-coauthor">Simon Karrer</span>, <span class="pub-coauthor">Lukas Ostheimer</span></div>
+          <div class="pub-venue"><em>Proceedings International Systems and Software Product Line Conference (SPLC)</em></div>
+        </div>
+      </div>
+      
+      <div class="publication pub-overflow pub-starred">
+        <div class="pub-title-row">
+          <div class="pub-title"><a href="https://doi.org/10.1145/3646548.3672598" target="_blank" rel="noopener">Towards Deterministic Compilation of Binary Decision Diagrams From Feature Models</a><span class="pub-badges"><img class="pub-badge" src="https://www.acm.org/binaries/content/gallery/acm/publications/replication-badges/artifacts_available_dl.jpg" alt="ACM Artifact Badge"><img class="pub-badge" src="https://www.acm.org/binaries/content/gallery/acm/publications/replication-badges/artifacts_evaluated_reusable_dl.jpg" alt="ACM Artifact Badge"></span></div>
+          <div class="pub-actions">
+            <a class="pub-bib-link" data-bib="@inproceedings{HSS+:SPLC24,
+  address = {New York, NY, USA},
+  author = {Heß, Tobias and Semmler, Sean Niklas and Sundermann, Chico and Torán, Jacobo and Thüm, Thomas},
+  booktitle = {Proc.\ Int&#39;l Systems and Software Product Line Conf.\ (SPLC)},
+  doi = {10.1145/3646548.3672598},
+  isbn = {9798400705939},
+  keywords = {Binary Decision Diagrams, Feature-Model Analysis, Variable Ordering},
+  location = {Dommeldange, Luxembourg},
+  month = {September},
+  numpages = {12},
+  pages = {136--147},
+  publisher = {ACM},
+  renamedfrom = {HSST:SPLC24},
+  title = {Towards Deterministic Compilation of Binary Decision Diagrams From Feature Models},
+  year = {2024}
+}" data-bib-key="HSS+:SPLC24">BibTeX</a>
+            <a class="pub-artifact-link" href="https://zenodo.org/records/11832023" target="_blank" rel="noopener">Artifact</a>
+          </div>
+        </div>
+        <div class="pub-meta-block">
+          <div class="pub-authors"><strong>Tobias Heß</strong>, <span class="pub-coauthor">Sean Niklas Semmler</span>, <span class="pub-coauthor">Chico Sundermann</span>, <span class="pub-coauthor">Jacobo Torán</span>, <span class="pub-coauthor">Thomas Thüm</span></div>
+          <div class="pub-venue"><em>Proceedings International Systems and Software Product Line Conference (SPLC)</em></div>
+        </div>
+      </div>
+      
+      <div class="publication pub-overflow">
+        <div class="pub-title-row">
+          <div class="pub-title"><a href="https://doi.org/10.1145/3634713.3634716" target="_blank" rel="noopener">UnWise: High T-Wise Coverage From Uniform Sampling</a><span class="pub-badges"><img class="pub-badge" src="https://www.acm.org/binaries/content/gallery/acm/publications/replication-badges/artifacts_available_dl.jpg" alt="ACM Artifact Badge"></span></div>
+          <div class="pub-actions">
+            <a class="pub-bib-link" data-bib="@inproceedings{HSO+:VaMoS24,
+  address = {New York, NY, USA},
+  author = {Heß, Tobias and Schmidt, Tim Jannik and Ostheimer, Lukas and Krieter, Sebastian and Thüm, Thomas},
+  booktitle = {Proc.\ Int&#39;l Working Conf.\ on Variability Modelling of Software-Intensive Systems (VaMoS)},
+  doi = {10.1145/3634713.3634716},
+  keywords = {Feature-Model Analysis, Industrial Feature Models, T-Wise Sampling, Uniform Sampling},
+  location = {Bern, Switzerland},
+  month = {February},
+  numpages = {9},
+  pages = {37--45},
+  publisher = {ACM},
+  title = {UnWise: High T-Wise Coverage From Uniform Sampling},
+  typo3tags = {PLSampling, FMCounting},
+  year = {2024}
+}" data-bib-key="HSO+:VaMoS24">BibTeX</a>
+            <a class="pub-artifact-link" href="https://zenodo.org/records/10303558" target="_blank" rel="noopener">Artifact</a>
+          </div>
+        </div>
+        <div class="pub-meta-block">
+          <div class="pub-authors"><strong>Tobias Heß</strong>, <span class="pub-coauthor">Tim Jannik Schmidt</span>, <span class="pub-coauthor">Lukas Ostheimer</span>, <span class="pub-coauthor">Sebastian Krieter</span>, <span class="pub-coauthor">Thomas Thüm</span></div>
+          <div class="pub-venue"><em>Proceedings International Working Conference on Variability Modelling of Software-Internationalensive Systems (VaMoS)</em></div>
+        </div>
+      </div>
+      
+          </div>
+          
+          <div class="pub-year-group">
+            <div class="pub-year">2022</div>
+            
+      <div class="publication pub-overflow">
+        <div class="pub-title-row">
+          <div class="pub-title"><a href="https://doi.org/10.1145/3503229.3547032" target="_blank" rel="noopener">ddueruem: A Wrapper for Feature-Model Analysis Tools</a></div>
+          <div class="pub-actions">
+            <a class="pub-bib-link" data-bib="@inproceedings{HMS+:SPLC22,
+  address = {New York, NY, USA},
+  author = {Heß, Tobias and Müller, Tobias and Sundermann, Chico and Thüm, Thomas},
+  booktitle = {Proc.\ Int&#39;l Systems and Software Product Line Conf.\ (SPLC)},
+  doi = {10.1145/3503229.3547032},
+  isbn = {9781450392068},
+  keywords = {knowledge compilation, benchmark, feature-model analysis, sampling},
+  location = {Graz, Austria},
+  month = {September},
+  pages = {54--57},
+  publisher = {ACM},
+  title = {ddueruem: A Wrapper for Feature-Model Analysis Tools},
+  year = {2022}
+}" data-bib-key="HMS+:SPLC22">BibTeX</a>
+          </div>
+        </div>
+        <div class="pub-meta-block">
+          <div class="pub-authors"><strong>Tobias Heß</strong>, <span class="pub-coauthor">Tobias Müller</span>, <span class="pub-coauthor">Chico Sundermann</span>, <span class="pub-coauthor">Thomas Thüm</span></div>
+          <div class="pub-venue"><em>Proceedings International Systems and Software Product Line Conference (SPLC)</em></div>
+        </div>
+      </div>
+      
+          </div>
+          
+          <div class="pub-year-group">
+            <div class="pub-year">2021</div>
+            
+      <div class="publication pub-overflow">
+        <div class="pub-title-row">
+          <div class="pub-title"><a href="https://doi.org/10.1145/3461001.3474452" target="_blank" rel="noopener">On the Scalability of Building Binary Decision Diagrams for Current Feature Models</a></div>
+          <div class="pub-actions">
+            <a class="pub-bib-link" data-bib="@inproceedings{HST:SPLC21,
+  address = {New York, NY, USA},
+  author = {Heß, Tobias and Sundermann, Chico and Thüm, Thomas},
+  booktitle = {Proc.\ Int&#39;l Systems and Software Product Line Conf.\ (SPLC)},
+  doi = {10.1145/3461001.3474452},
+  ektags = {knowledge compilation},
+  isbn = {9781450384698},
+  location = {Leicester, UK},
+  month = {September},
+  numpages = {5},
+  pages = {131--135},
+  publisher = {ACM},
+  title = {On the Scalability of Building Binary Decision Diagrams for Current Feature Models},
+  typo3tags = {OBDDimal},
+  year = {2021}
+}" data-bib-key="HST:SPLC21">BibTeX</a>
+          </div>
+        </div>
+        <div class="pub-meta-block">
+          <div class="pub-authors"><strong>Tobias Heß</strong>, <span class="pub-coauthor">Chico Sundermann</span>, <span class="pub-coauthor">Thomas Thüm</span></div>
+          <div class="pub-venue"><em>Proceedings International Systems and Software Product Line Conference (SPLC)</em></div>
+        </div>
+      </div>
+      
+          </div>
+          
+          
+          <button class="pub-show-all" data-total="9">
+            Show all 9 ▾
+          </button>
+          
+        </div>
       </section>
+      
 
+      
+      <section id="other-publications" class="collapsible-section">
+        <div class="section-header">
+          <h2>Other Publications (18)</h2>
+          <span class="toggle-icon collapsed">▾</span>
+        </div>
+        <div class="section-body">
+          
+          <div class="pub-year-group">
+            <div class="pub-year">2026</div>
+            
+      <div class="publication">
+        <div class="pub-title-row">
+          <div class="pub-title"><a href="https://doi.org/10.1145/3764666" target="_blank" rel="noopener">How Configurable is the Linux Kernel? Analyzing Two Decades of Feature-Model History -- RCR Report</a></div>
+          <div class="pub-actions">
+            <a class="pub-bib-link" data-bib="@article{KST+:TOSEM25RCR,
+  address = {New York, NY, USA},
+  author = {Kuiter, Elias and Sundermann, Chico and Thüm, Thomas and Heß, Tobias and Krieter, Sebastian and Saake, Gunter},
+  doi = {10.1145/3764666},
+  ektags = {KConfig, Linux, configurability},
+  journal = {Trans.\ on Software Engineering and Methodology (TOSEM)},
+  month = {February},
+  publisher = {ACM},
+  title = {How Configurable is the Linux Kernel? Analyzing Two Decades of Feature-Model History -- RCR Report},
+  year = {2026}
+}" data-bib-key="KST+:TOSEM25RCR">BibTeX</a>
+          </div>
+        </div>
+        <div class="pub-meta-block">
+          <div class="pub-authors"><span class="pub-coauthor">Elias Kuiter</span>, <span class="pub-coauthor">Chico Sundermann</span>, <span class="pub-coauthor">Thomas Thüm</span>, <strong>Tobias Heß</strong>, <span class="pub-coauthor">Sebastian Krieter</span>, <span class="pub-coauthor">Gunter Saake</span></div>
+          <div class="pub-venue"><em>Transactions on Software Engineering and Methodology (TOSEM)</em></div>
+        </div>
+      </div>
+      
+      <div class="publication">
+        <div class="pub-title-row">
+          <div class="pub-title"><a href="https://doi.org/10.18420/se2026_28" target="_blank" rel="noopener">How Configurable is the Linux Kernel? Analyzing Two Decades of Feature-Model History -- Summary</a></div>
+          <div class="pub-actions">
+            <a class="pub-bib-link" data-bib="@inproceedings{KST+:SE26,
+  address = {Bonn, Germany},
+  author = {Kuiter, Elias and Sundermann, Chico and Thüm, Thomas and Heß, Tobias and Krieter, Sebastian and Saake, Gunter},
+  booktitle = {Proc.\ Software Engineering (SE)},
+  doi = {10.18420/se2026_28},
+  ektags = {KConfig, Linux, configurability},
+  location = {Bern, Switzerland},
+  month = {February},
+  publisher = {Gesellschaft für Informatik},
+  title = {How Configurable is the Linux Kernel? Analyzing Two Decades of Feature-Model History -- Summary},
+  year = {2026}
+}" data-bib-key="KST+:SE26">BibTeX</a>
+          </div>
+        </div>
+        <div class="pub-meta-block">
+          <div class="pub-authors"><span class="pub-coauthor">Elias Kuiter</span>, <span class="pub-coauthor">Chico Sundermann</span>, <span class="pub-coauthor">Thomas Thüm</span>, <strong>Tobias Heß</strong>, <span class="pub-coauthor">Sebastian Krieter</span>, <span class="pub-coauthor">Gunter Saake</span></div>
+          <div class="pub-venue"><em>Proceedings Software Engineering (SE)</em></div>
+        </div>
+      </div>
+      
+      <div class="publication">
+        <div class="pub-title-row">
+          <div class="pub-title"><a href="https://doi.org/10.18420/se2026_52" target="_blank" rel="noopener">Reusing d-DNNFs for Efficient Feature-Model Counting -- Summary</a></div>
+          <div class="pub-actions">
+            <a class="pub-bib-link" data-bib="@inproceedings{SRH+:SE26,
+  address = {Bonn, Germany},
+  author = {Sundermann, Chico and Raab, Heiko and Heß, Tobias and Thüm, Thomas and Schaefer, Ina},
+  booktitle = {Proc.\ Software Engineering (SE)},
+  doi = {10.18420/se2026_52},
+  location = {Bern, Switzerland},
+  month = {February},
+  publisher = {Gesellschaft für Informatik},
+  title = {Reusing d-DNNFs for Efficient Feature-Model Counting -- Summary},
+  typo3tags = {FMCounting},
+  year = {2026}
+}" data-bib-key="SRH+:SE26">BibTeX</a>
+          </div>
+        </div>
+        <div class="pub-meta-block">
+          <div class="pub-authors"><span class="pub-coauthor">Chico Sundermann</span>, <span class="pub-coauthor">Heiko Raab</span>, <strong>Tobias Heß</strong>, <span class="pub-coauthor">Thomas Thüm</span>, <span class="pub-coauthor">Ina Schaefer</span></div>
+          <div class="pub-venue"><em>Proceedings Software Engineering (SE)</em></div>
+        </div>
+      </div>
+      
+          </div>
+          
+          <div class="pub-year-group">
+            <div class="pub-year">2025</div>
+            
+      <div class="publication">
+        <div class="pub-title-row">
+          <div class="pub-title"><a href="https://doi.org/10.1145/3729423" target="_blank" rel="noopener">How Configurable is the Linux Kernel? Analyzing Two Decades of Feature-Model History</a></div>
+          <div class="pub-actions">
+            <a class="pub-bib-link" data-bib="@article{KST+:TOSEM25,
+  address = {New York, NY, USA},
+  author = {Kuiter, Elias and Sundermann, Chico and Thüm, Thomas and Heß, Tobias and Krieter, Sebastian and Saake, Gunter},
+  doi = {10.1145/3729423},
+  ektags = {KConfig, Linux, configurability},
+  journal = {Trans.\ on Software Engineering and Methodology (TOSEM)},
+  month = {December},
+  number = {1},
+  publisher = {ACM},
+  title = {How Configurable is the Linux Kernel? Analyzing Two Decades of Feature-Model History},
+  volume = {35},
+  year = {2025}
+}" data-bib-key="KST+:TOSEM25">BibTeX</a>
+          </div>
+        </div>
+        <div class="pub-meta-block">
+          <div class="pub-authors"><span class="pub-coauthor">Elias Kuiter</span>, <span class="pub-coauthor">Chico Sundermann</span>, <span class="pub-coauthor">Thomas Thüm</span>, <strong>Tobias Heß</strong>, <span class="pub-coauthor">Sebastian Krieter</span>, <span class="pub-coauthor">Gunter Saake</span></div>
+          <div class="pub-venue"><em>Transactions on Software Engineering and Methodology (TOSEM)</em></div>
+        </div>
+      </div>
+      
+          </div>
+          
+          <div class="pub-year-group">
+            <div class="pub-year">2024</div>
+            
+      <div class="publication">
+        <div class="pub-title-row">
+          <div class="pub-title"><a href="https://doi.org/10.1145/3680465" target="_blank" rel="noopener">Reusing d-DNNFs for Efficient Feature-Model Counting</a></div>
+          <div class="pub-actions">
+            <a class="pub-bib-link" data-bib="@article{SRH+:TOSEM24,
+  address = {New York, NY, USA},
+  articleno = {208},
+  author = {Sundermann, Chico and Raab, Heiko and Heß, Tobias and Thüm, Thomas and Schaefer, Ina},
+  doi = {10.1145/3680465},
+  ektags = {model counting, knowledge compilation},
+  journal = {Trans.\ on Software Engineering and Methodology (TOSEM)},
+  month = {November},
+  number = {8},
+  numpages = {32},
+  publisher = {ACM},
+  title = {Reusing d-DNNFs for Efficient Feature-Model Counting},
+  typo3tags = {FMCounting},
+  volume = {33},
+  year = {2024}
+}" data-bib-key="SRH+:TOSEM24">BibTeX</a>
+          </div>
+        </div>
+        <div class="pub-meta-block">
+          <div class="pub-authors"><span class="pub-coauthor">Chico Sundermann</span>, <span class="pub-coauthor">Heiko Raab</span>, <strong>Tobias Heß</strong>, <span class="pub-coauthor">Thomas Thüm</span>, <span class="pub-coauthor">Ina Schaefer</span></div>
+          <div class="pub-venue"><em>Transactions on Software Engineering and Methodology (TOSEM)</em></div>
+        </div>
+      </div>
+      
+      <div class="publication pub-overflow">
+        <div class="pub-title-row">
+          <div class="pub-title"><a href="https://doi.org/10.1007/s10472-023-09906-6" target="_blank" rel="noopener">On the Benefits of Knowledge Compilation for Feature-Model Analyses</a></div>
+          <div class="pub-actions">
+            <a class="pub-bib-link" data-bib="@article{SKH+:AMAI24,
+  author = {Sundermann, Chico and Kuiter, Elias and Heß, Tobias and Raab, Heiko and Krieter, Sebastian and Thüm, Thomas},
+  doi = {10.1007/s10472-023-09906-6},
+  ektags = {knowledge compilation},
+  journal = {Annals of Mathematics and Artificial Intelligence (AMAI)},
+  month = {October},
+  number = {5},
+  pages = {1013--1050},
+  publisher = {Springer},
+  title = {On the Benefits of Knowledge Compilation for Feature-Model Analyses},
+  typo3tags = {FMCounting},
+  volume = {92},
+  year = {2024}
+}" data-bib-key="SKH+:AMAI24">BibTeX</a>
+          </div>
+        </div>
+        <div class="pub-meta-block">
+          <div class="pub-authors"><span class="pub-coauthor">Chico Sundermann</span>, <span class="pub-coauthor">Elias Kuiter</span>, <strong>Tobias Heß</strong>, <span class="pub-coauthor">Heiko Raab</span>, <span class="pub-coauthor">Sebastian Krieter</span>, <span class="pub-coauthor">Thomas Thüm</span></div>
+          <div class="pub-venue"><em>Annals of Mathematics and Artificial Internationalelligence (AMAI)</em></div>
+        </div>
+      </div>
+      
+      <div class="publication pub-overflow">
+        <div class="pub-title-row">
+          <div class="pub-title"><a href="https://doi.org/10.1145/3646548.3676602" target="_blank" rel="noopener">Generating Feature Models with UVL's Full Expressiveness</a></div>
+          <div class="pub-actions">
+            <a class="pub-bib-link" data-bib="@inproceedings{SHS+:MODEVAR24b,
+  address = {New York, NY, USA},
+  author = {Sundermann, Chico and Heß, Tobias and Sundermann, Rahel and Kuiter, Elias and Krieter, Sebastian and Thüm, Thomas},
+  booktitle = {Proc.\ Int&#39;l Workshop on Languages for Modelling Variability (MODEVAR)},
+  doi = {10.1145/3646548.3676602},
+  ektags = {UVL},
+  location = {Dommeldange, Luxembourg},
+  month = {September},
+  pages = {61--65},
+  publisher = {ACM},
+  title = {Generating Feature Models with UVL&#39;s Full Expressiveness},
+  year = {2024}
+}" data-bib-key="SHS+:MODEVAR24b">BibTeX</a>
+          </div>
+        </div>
+        <div class="pub-meta-block">
+          <div class="pub-authors"><span class="pub-coauthor">Chico Sundermann</span>, <strong>Tobias Heß</strong>, <span class="pub-coauthor">Rahel Sundermann</span>, <span class="pub-coauthor">Elias Kuiter</span>, <span class="pub-coauthor">Sebastian Krieter</span>, <span class="pub-coauthor">Thomas Thüm</span></div>
+          <div class="pub-venue"><em>Proceedings International Workshop on Languages for Modelling Variability (MODEVAR)</em></div>
+        </div>
+      </div>
+      
+      <div class="publication pub-overflow">
+        <div class="pub-title-row">
+          <div class="pub-title"><a href="https://doi.org/10.1145/3646548.3672590" target="_blank" rel="noopener">Collecting Feature Models from the Literature: A Comprehensive Dataset for Benchmarking</a></div>
+          <div class="pub-actions">
+            <a class="pub-bib-link" data-bib="@inproceedings{SBK+:SPLC24,
+  address = {New York, NY, USA},
+  author = {Sundermann, Chico and Brancaccio, Vincenzo Francesco and Kuiter, Elias and Krieter, Sebastian and Heß, Tobias and Thüm, Thomas},
+  booktitle = {Proc.\ Int&#39;l Systems and Software Product Line Conf.\ (SPLC)},
+  doi = {10.1145/3646548.3672590},
+  ektags = {reproducibility, structure},
+  location = {Dommeldange, Luxembourg},
+  month = {September},
+  pages = {54--65},
+  publisher = {ACM},
+  title = {Collecting Feature Models from the Literature: A Comprehensive Dataset for Benchmarking},
+  typo3tags = {FMCounting},
+  year = {2024}
+}" data-bib-key="SBK+:SPLC24">BibTeX</a>
+          </div>
+        </div>
+        <div class="pub-meta-block">
+          <div class="pub-authors"><span class="pub-coauthor">Chico Sundermann</span>, <span class="pub-coauthor">Vincenzo Francesco Brancaccio</span>, <span class="pub-coauthor">Elias Kuiter</span>, <span class="pub-coauthor">Sebastian Krieter</span>, <strong>Tobias Heß</strong>, <span class="pub-coauthor">Thomas Thüm</span></div>
+          <div class="pub-venue"><em>Proceedings International Systems and Software Product Line Conference (SPLC)</em></div>
+        </div>
+      </div>
+      
+      <div class="publication pub-overflow">
+        <div class="pub-title-row">
+          <div class="pub-title"><a href="https://doi.org/10.1145/3646548.3676540" target="_blank" rel="noopener">On the Benefits of Knowledge Compilation for Feature-Model Analyses</a></div>
+          <div class="pub-actions">
+            <a class="pub-bib-link" data-bib="@inproceedings{SKH+:SPLC24,
+  address = {New York, NY, USA},
+  author = {Sundermann, Chico and Kuiter, Elias and Heß, Tobias and Raab, Heiko and Krieter, Sebastian and Thüm, Thomas},
+  booktitle = {Proc.\ Int&#39;l Systems and Software Product Line Conf.\ (SPLC)},
+  doi = {10.1145/3646548.3676540},
+  ektags = {extended abstract, knowledge compilation},
+  location = {Dommeldange, Luxembourg},
+  month = {September},
+  pages = {217},
+  publisher = {ACM},
+  title = {On the Benefits of Knowledge Compilation for Feature-Model Analyses},
+  year = {2024}
+}" data-bib-key="SKH+:SPLC24">BibTeX</a>
+          </div>
+        </div>
+        <div class="pub-meta-block">
+          <div class="pub-authors"><span class="pub-coauthor">Chico Sundermann</span>, <span class="pub-coauthor">Elias Kuiter</span>, <strong>Tobias Heß</strong>, <span class="pub-coauthor">Heiko Raab</span>, <span class="pub-coauthor">Sebastian Krieter</span>, <span class="pub-coauthor">Thomas Thüm</span></div>
+          <div class="pub-venue"><em>Proceedings International Systems and Software Product Line Conference (SPLC)</em></div>
+        </div>
+      </div>
+      
+      <div class="publication pub-overflow">
+        <div class="pub-title-row">
+          <div class="pub-title"><a href="https://doi.org/10.18420/sw2024_18" target="_blank" rel="noopener">Evaluating State-of-the-Art #SAT Solvers on Industrial Configuration Spaces</a></div>
+          <div class="pub-actions">
+            <a class="pub-bib-link" data-bib="@inproceedings{SHN+:SE24,
+  address = {Bonn, Germany},
+  author = {Sundermann, Chico and Heß, Tobias and Nieke, Michael and Bittner, Paul Maximilian and Young, Jeffrey M. and Thüm, Thomas and Schaefer, Ina},
+  booktitle = {Proc.\ Software Engineering (SE)},
+  doi = {10.18420/sw2024_18},
+  ektags = {model counting, structure},
+  isbn = {978-3-88579-737-1},
+  month = {February},
+  pages = {67--68},
+  pissn = {1617-5468},
+  publisher = {Gesellschaft für Informatik},
+  title = {Evaluating State-of-the-Art #SAT Solvers on Industrial Configuration Spaces},
+  typo3tags = {FMCounting},
+  year = {2024}
+}" data-bib-key="SHN+:SE24">BibTeX</a>
+          </div>
+        </div>
+        <div class="pub-meta-block">
+          <div class="pub-authors"><span class="pub-coauthor">Chico Sundermann</span>, <strong>Tobias Heß</strong>, <span class="pub-coauthor">Michael Nieke</span>, <span class="pub-coauthor">Paul Maximilian Bittner</span>, <span class="pub-coauthor">Jeffrey M. Young</span>, <span class="pub-coauthor">Thomas Thüm</span>, <span class="pub-coauthor">et al.</span></div>
+          <div class="pub-venue"><em>Proceedings Software Engineering (SE)</em></div>
+        </div>
+      </div>
+      
+      <div class="publication pub-overflow">
+        <div class="pub-title-row">
+          <div class="pub-title"><a href="https://doi.org/10.1145/3634713.3634715" target="_blank" rel="noopener">Incremental Identification of T-Wise Feature Interactions</a></div>
+          <div class="pub-actions">
+            <a class="pub-bib-link" data-bib="@inproceedings{BKH+:VaMoS24,
+  address = {New York, NY, USA},
+  author = {Böhm, Sabrina and Krieter, Sebastian and Heß, Tobias and Thüm, Thomas and Lochau, Malte},
+  booktitle = {Proc.\ Int&#39;l Working Conf.\ on Variability Modelling of Software-Intensive Systems (VaMoS)},
+  doi = {10.1145/3634713.3634715},
+  isbn = {9798400708770},
+  location = {Bern, Switzerland},
+  month = {February},
+  pages = {27--36},
+  publisher = {ACM},
+  title = {Incremental Identification of T-Wise Feature Interactions},
+  typo3tags = {PLSampling},
+  year = {2024}
+}" data-bib-key="BKH+:VaMoS24">BibTeX</a>
+          </div>
+        </div>
+        <div class="pub-meta-block">
+          <div class="pub-authors"><span class="pub-coauthor">Sabrina Böhm</span>, <span class="pub-coauthor">Sebastian Krieter</span>, <strong>Tobias Heß</strong>, <span class="pub-coauthor">Thomas Thüm</span>, <span class="pub-coauthor">Malte Lochau</span></div>
+          <div class="pub-venue"><em>Proceedings International Working Conference on Variability Modelling of Software-Internationalensive Systems (VaMoS)</em></div>
+        </div>
+      </div>
+      
+      <div class="publication pub-overflow">
+        <div class="pub-title-row">
+          <div class="pub-title"><a href="https://doi.org/10.1145/3634713.3634733" target="_blank" rel="noopener">How Easy is SAT-Based Analysis of a Feature Model?</a></div>
+          <div class="pub-actions">
+            <a class="pub-bib-link" data-bib="@inproceedings{KHS+:VaMoS24,
+  address = {New York, NY, USA},
+  author = {Kuiter, Elias and Heß, Tobias and Sundermann, Chico and Krieter, Sebastian and Thüm, Thomas and Saake, Gunter},
+  booktitle = {Proc.\ Int&#39;l Working Conf.\ on Variability Modelling of Software-Intensive Systems (VaMoS)},
+  doi = {10.1145/3634713.3634733},
+  ektags = {meta-analysis, complexity},
+  location = {Bern, Switzerland},
+  month = {February},
+  pages = {149--151},
+  publisher = {ACM},
+  title = {How Easy is SAT-Based Analysis of a Feature Model?},
+  typo3tags = {FMCounting, PLSampling},
+  year = {2024}
+}" data-bib-key="KHS+:VaMoS24">BibTeX</a>
+          </div>
+        </div>
+        <div class="pub-meta-block">
+          <div class="pub-authors"><span class="pub-coauthor">Elias Kuiter</span>, <strong>Tobias Heß</strong>, <span class="pub-coauthor">Chico Sundermann</span>, <span class="pub-coauthor">Sebastian Krieter</span>, <span class="pub-coauthor">Thomas Thüm</span>, <span class="pub-coauthor">Gunter Saake</span></div>
+          <div class="pub-venue"><em>Proceedings International Working Conference on Variability Modelling of Software-Internationalensive Systems (VaMoS)</em></div>
+        </div>
+      </div>
+      
+          </div>
+          
+          <div class="pub-year-group">
+            <div class="pub-year">2023</div>
+            
+      <div class="publication pub-overflow">
+        <div class="pub-title-row">
+          <div class="pub-title"><a href="https://doi.org/10.1007/s10664-022-10265-9" target="_blank" rel="noopener">Evaluating State-of-the-Art #SAT Solvers on Industrial Configuration Spaces</a></div>
+          <div class="pub-actions">
+            <a class="pub-bib-link" data-bib="@article{SHN+:EMSE23,
+  author = {Chico Sundermann and Tobias Heß and Michael Nieke and Paul Maximilian Bittner and Jeffrey M. Young and Thomas Thüm and Ina Schaefer},
+  doi = {10.1007/s10664-022-10265-9},
+  ektags = {model counting, structure},
+  journal = {Empirical Software Engineering (EMSE)},
+  keywords = {configurable systems, feature models, product lines, model counting, configuration counting, #SAT, Benchmark},
+  month = {March},
+  number = {2},
+  pages = {38},
+  publisher = {Springer},
+  title = {Evaluating State-of-the-Art #SAT Solvers on Industrial Configuration Spaces},
+  typo3tags = {FMCounting, VariantSyncPub},
+  volume = {28},
+  year = {2023}
+}" data-bib-key="SHN+:EMSE23">BibTeX</a>
+          </div>
+        </div>
+        <div class="pub-meta-block">
+          <div class="pub-authors"><span class="pub-coauthor">Chico Sundermann</span>, <strong>Tobias Heß</strong>, <span class="pub-coauthor">Michael Nieke</span>, <span class="pub-coauthor">Paul Maximilian Bittner</span>, <span class="pub-coauthor">Jeffrey M. Young</span>, <span class="pub-coauthor">Thomas Thüm</span>, <span class="pub-coauthor">et al.</span></div>
+          <div class="pub-venue"><em>Empirical Software Engineering (EMSE)</em></div>
+        </div>
+      </div>
+      
+      <div class="publication pub-overflow">
+        <div class="pub-title-row">
+          <div class="pub-title"><a href="https://doi.org/10.1145/3579027.3608980" target="_blank" rel="noopener">Continuous T-Wise Coverage</a></div>
+          <div class="pub-actions">
+            <a class="pub-bib-link" data-bib="@inproceedings{PHK+:SPLC23,
+  address = {New York, NY, USA},
+  author = {Pett, Tobias and Heß, Tobias and Krieter, Sebastian and Thüm, Thomas and Schaefer, Ina},
+  booktitle = {Proc.\ Int&#39;l Systems and Software Product Line Conf.\ (SPLC)},
+  doi = {10.1145/3579027.3608980},
+  isbn = {9798400700910},
+  keywords = {sampling, software-product lines, spl evolution, spl testing, t-wise coverage},
+  location = {Tokyo, Japan},
+  month = {August},
+  pages = {87--98},
+  publisher = {ACM},
+  title = {Continuous T-Wise Coverage},
+  year = {2023}
+}" data-bib-key="PHK+:SPLC23">BibTeX</a>
+          </div>
+        </div>
+        <div class="pub-meta-block">
+          <div class="pub-authors"><span class="pub-coauthor">Tobias Pett</span>, <strong>Tobias Heß</strong>, <span class="pub-coauthor">Sebastian Krieter</span>, <span class="pub-coauthor">Thomas Thüm</span>, <span class="pub-coauthor">Ina Schaefer</span></div>
+          <div class="pub-venue"><em>Proceedings International Systems and Software Product Line Conference (SPLC)</em></div>
+        </div>
+      </div>
+      
+      <div class="publication pub-overflow">
+        <div class="pub-title-row">
+          <div class="pub-title"><a href="https://doi.org/10.48550/arXiv.2303.12383" target="_blank" rel="noopener">Exploiting d-DNNFs for Repetitive Counting Queries on Feature Models</a></div>
+          <div class="pub-actions">
+            <a class="pub-bib-link" data-bib="@techreport{SRH+:TR23subsumedbySRH+:TOSEM24,
+  author = {Sundermann, Chico and Raab, Heiko and Heß, Tobias and Thüm, Thomas and Schaefer, Ina},
+  doi = {10.48550/arXiv.2303.12383},
+  ektags = {model counting, knowledge compilation},
+  institution = {Cornell University Library},
+  month = {March},
+  number = {arXiv:2303.12383},
+  subsumedby = {SRH+:TOSEM24},
+  title = {Exploiting d-DNNFs for Repetitive Counting Queries on Feature Models},
+  typo3tags = {FMCounting},
+  year = {2023}
+}" data-bib-key="SRH+:TR23subsumedbySRH+:TOSEM24">BibTeX</a>
+          </div>
+        </div>
+        <div class="pub-meta-block">
+          <div class="pub-authors"><span class="pub-coauthor">Chico Sundermann</span>, <span class="pub-coauthor">Heiko Raab</span>, <strong>Tobias Heß</strong>, <span class="pub-coauthor">Thomas Thüm</span>, <span class="pub-coauthor">Ina Schaefer</span></div>
+          <div class="pub-venue"><em>Cornell University Library</em></div>
+        </div>
+      </div>
+      
+          </div>
+          
+          <div class="pub-year-group">
+            <div class="pub-year">2021</div>
+            
+      <div class="publication pub-overflow">
+        <div class="pub-title-row">
+          <div class="pub-title"><a href="https://doi.org/10.1145/3461002.3473940" target="_blank" rel="noopener">Integration of UVL in FeatureIDE</a></div>
+          <div class="pub-actions">
+            <a class="pub-bib-link" data-bib="@inproceedings{SHE+:MODEVAR21,
+  address = {New York, NY, USA},
+  author = {Sundermann, Chico and Heß, Tobias and Engelhardt, Dominik and Arens, Rahel and Herschel, Johannes and Jedelhauser, Kevin and Jutz, Benedikt and Krieter, Sebastian and Schaefer, Ina},
+  booktitle = {Proc.\ Int&#39;l Workshop on Languages for Modelling Variability (MODEVAR)},
+  doi = {10.1145/3461002.3473940},
+  isbn = {9781450384704},
+  location = {Leicester, UK},
+  month = {September},
+  numpages = {7},
+  pages = {73--79},
+  publisher = {ACM},
+  title = {Integration of UVL in FeatureIDE},
+  typo3tags = {UVL, VariantSyncPub},
+  year = {2021}
+}" data-bib-key="SHE+:MODEVAR21">BibTeX</a>
+          </div>
+        </div>
+        <div class="pub-meta-block">
+          <div class="pub-authors"><span class="pub-coauthor">Chico Sundermann</span>, <strong>Tobias Heß</strong>, <span class="pub-coauthor">Dominik Engelhardt</span>, <span class="pub-coauthor">Rahel Arens</span>, <span class="pub-coauthor">Johannes Herschel</span>, <span class="pub-coauthor">Kevin Jedelhauser</span>, <span class="pub-coauthor">et al.</span></div>
+          <div class="pub-venue"><em>Proceedings International Workshop on Languages for Modelling Variability (MODEVAR)</em></div>
+        </div>
+      </div>
+      
+      <div class="publication pub-overflow">
+        <div class="pub-title-row">
+          <div class="pub-title"><a href="https://doi.org/10.1145/3461001.3471148" target="_blank" rel="noopener">Incremental Construction of Modal Implication Graphs for Evolving Feature Models</a></div>
+          <div class="pub-actions">
+            <a class="pub-bib-link" data-bib="@inproceedings{KAN+:SPLC21,
+  address = {New York, NY, USA},
+  author = {Krieter, Sebastian and Arens, Rahel and Nieke, Michael and Sundermann, Chico and Heß, Tobias and Thüm, Thomas and Seidl, Christoph},
+  booktitle = {Proc.\ Int&#39;l Systems and Software Product Line Conf.\ (SPLC)},
+  doi = {10.1145/3461001.3471148},
+  ektags = {evolution},
+  isbn = {9781450384698},
+  location = {Leicester, UK},
+  month = {September},
+  numpages = {11},
+  pages = {64--74},
+  publisher = {ACM},
+  title = {Incremental Construction of Modal Implication Graphs for Evolving Feature Models},
+  year = {2021}
+}" data-bib-key="KAN+:SPLC21">BibTeX</a>
+          </div>
+        </div>
+        <div class="pub-meta-block">
+          <div class="pub-authors"><span class="pub-coauthor">Sebastian Krieter</span>, <span class="pub-coauthor">Rahel Arens</span>, <span class="pub-coauthor">Michael Nieke</span>, <span class="pub-coauthor">Chico Sundermann</span>, <strong>Tobias Heß</strong>, <span class="pub-coauthor">Thomas Thüm</span>, <span class="pub-coauthor">et al.</span></div>
+          <div class="pub-venue"><em>Proceedings International Systems and Software Product Line Conference (SPLC)</em></div>
+        </div>
+      </div>
+      
+      <div class="publication pub-overflow">
+        <div class="pub-title-row">
+          <div class="pub-title"><a href="https://doi.org/10.1145/3442391.3442404" target="_blank" rel="noopener">Applications of #SAT Solvers on Feature Models</a></div>
+          <div class="pub-actions">
+            <a class="pub-bib-link" data-bib="@inproceedings{SNB+:VaMoS21,
+  address = {New York, NY, USA},
+  articleno = {12},
+  author = {Sundermann, Chico and Nieke, Michael and Bittner, Paul Maximilian and Heß, Tobias and Thüm, Thomas and Schaefer, Ina},
+  booktitle = {Proc.\ Int&#39;l Working Conf.\ on Variability Modelling of Software-Intensive Systems (VaMoS)},
+  doi = {10.1145/3442391.3442404},
+  isbn = {9781450388245},
+  keywords = {Feature-Model Analysis, Feature Models, #SAT Applications, #SAT, Product Lines, Configuration Counting, Model Counting},
+  location = {Krems, Austria},
+  month = {February},
+  numpages = {10},
+  publisher = {ACM},
+  tctags = {classified by Thomas,feature-model analysis,family-based analysis,implementation independent,specification independent},
+  title = {Applications of #SAT Solvers on Feature Models},
+  tttags = {Feature-Model Analysis},
+  typo3tags = {VariantSyncPub, FMCounting},
+  year = {2021}
+}" data-bib-key="SNB+:VaMoS21">BibTeX</a>
+          </div>
+        </div>
+        <div class="pub-meta-block">
+          <div class="pub-authors"><span class="pub-coauthor">Chico Sundermann</span>, <span class="pub-coauthor">Michael Nieke</span>, <span class="pub-coauthor">Paul Maximilian Bittner</span>, <strong>Tobias Heß</strong>, <span class="pub-coauthor">Thomas Thüm</span>, <span class="pub-coauthor">Ina Schaefer</span></div>
+          <div class="pub-venue"><em>Proceedings International Working Conference on Variability Modelling of Software-Internationalensive Systems (VaMoS)</em></div>
+        </div>
+      </div>
+      
+          </div>
+          
+          
+          <button class="pub-show-all" data-total="18">
+            Show all 18 ▾
+          </button>
+          
+        </div>
+      </section>
+      
+
+      
+      <section id="service" class="collapsible-section">
+        <div class="section-header">
+          <h2>Academic Service</h2>
+          <span class="toggle-icon collapsed">▾</span>
+        </div>
+        <div class="section-body">
+          
+          <div class="service-entry">
+            <span class="service-category">Journals:</span> <built-in method items of dict object at 0x7fd43a951dc0>
+          </div>
+          
+          <div class="service-entry">
+            <span class="service-category">Conferences:</span> <built-in method items of dict object at 0x7fd43a951e80>
+          </div>
+          
+          <div class="service-entry">
+            <span class="service-category">Other:</span> <built-in method items of dict object at 0x7fd43a951f80>
+          </div>
+          
+        </div>
+      </section>
+      
+
+      
       <section id="projects" class="collapsible-section">
         <div class="section-header">
           <h2>Projects</h2>
-          <span class="toggle-icon">▾</span>
+          <span class="toggle-icon collapsed">▾</span>
         </div>
         <div class="section-body">
+          
           <div class="project">
-            <div class="project-name">RegNet</div>
-            <div class="project-desc">A Python library for learning gene regulatory networks from single-cell RNA-seq data.</div>
+            <div class="project-name">variability.dev</div>
+            <div class="project-desc"><p>A collection of easy-to-use tools for feature modeling and feature-model analyses.</p></div>
           </div>
+          
           <div class="project">
-            <div class="project-name">OmicsDB</div>
-            <div class="project-desc">A curated database of multi-omics datasets for benchmarking machine learning methods.</div>
+            <div class="project-name">ddueruem</div>
+            <div class="project-desc"><p>A wrapper for feature-model analyses tools and frameworks.</p></div>
           </div>
+          
         </div>
       </section>
+      
 
-      <section id="talks" class="collapsible-section">
+      
+
+      
+      <section id="education" class="collapsible-section">
         <div class="section-header">
-          <h2>Talks &amp; Presentations</h2>
-          <span class="toggle-icon">▾</span>
+          <h2>Education</h2>
+          <span class="toggle-icon collapsed">▾</span>
         </div>
         <div class="section-body">
-          <div class="talk">
-            <div class="talk-title">Machine Learning in Genomics — ISMB 2024</div>
-            <div class="talk-meta">Keynote · July 2024</div>
+          
+          <div class="education-entry">
+            <div class="entry-primary">PhD Candidate</div>
+            <div class="entry-secondary">University of Ulm<span class="entry-period">12/2021 – present</span></div>
+            
           </div>
-          <div class="talk">
-            <div class="talk-title">Single-cell multiomics: challenges and opportunities</div>
-            <div class="talk-meta">Cold Spring Harbor Laboratory · March 2023</div>
+          
+          <div class="education-entry">
+            <div class="entry-primary">M.Sc. Mathematics</div>
+            <div class="entry-secondary">University of Ulm<span class="entry-period">2020</span></div>
+            
           </div>
+          
+          <div class="education-entry">
+            <div class="entry-primary">B.Sc. Mathematics</div>
+            <div class="entry-secondary">University of Ulm<span class="entry-period">2017</span></div>
+            
+          </div>
+          
         </div>
       </section>
+      
 
       <section id="contact" class="collapsible-section">
         <div class="section-header">
@@ -127,9 +1028,9 @@
         </div>
         <div class="section-body">
           <div class="contact-info">
-            <div>jane.smith@university.edu</div>
-            <div>Office: Science Building A, Room 301</div>
-            <div>University of Science · 123 Science Drive · City, ST 00000</div>
+            <div>tobias.hess@dhbw-heidenheim.de</div>
+            <div>Office: DHBW Heidenheim, Digitalcampus, A3.10</div>
+            <div>Hanns-Voith-Campus 1, 89520 Heidenheim an der Brenz</div>
           </div>
         </div>
       </section>
