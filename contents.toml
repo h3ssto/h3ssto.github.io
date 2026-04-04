@@ -85,15 +85,15 @@ notes       = ""
 # ── Academic Service ──────────────────────────────────────────────────────────
 [[service]]
 category = "Journals"
-items    = "EMSE (A), TOSEM (A*), AUSE (B), SoSyM (B)"
+entries  ="EMSE (A), TOSEM (A*), AUSE (B), SoSyM (B)"
 
 [[service]]
 category = "Conferences"
-items    = "GPCE'21 (B), SPLC'21 (B), VaMoS'22 (B), ISSTA'22 (A), SPLC'22 (B), ISSTA'23 (A)"
+entries  ="GPCE'21 (B), SPLC'21 (B), VaMoS'22 (B), ISSTA'22 (A), SPLC'22 (B), ISSTA'23 (A)"
 
 [[service]]
 category = "Other"
-items    = "PR and Proceedings Chair for VaMoS'23"
+entries  ="PR and Proceedings Chair for VaMoS'23"
 
 # ── Projects ─────────────────────────────────────────────────────────────────
 [[projects]]
