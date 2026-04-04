@@ -3,24 +3,16 @@
 Build index.html from template.html + contents.toml + BibTeX files.
 
 Requirements:
-    pip install jinja2 markdown "bibtexparser<2"
-    pip install tomli          # only if Python < 3.11
+    pip install -r requirements.txt
 
 Usage:
     python build.py
 """
 
-try:
-    import tomllib
-except ModuleNotFoundError:
-    try:
-        import tomli as tomllib
-    except ModuleNotFoundError:
-        raise SystemExit("Install tomli: pip install tomli  (needed for Python < 3.11)")
+import tomllib
 
 import re
 import urllib.request
-from urllib.parse import quote as url_quote
 import markdown
 import bibtexparser
 from bibtexparser.bparser import BibTexParser
@@ -33,7 +25,8 @@ _bib_writer = BibTexWriter()
 _bib_writer.indent = "  "
 
 
-# ── Author matching ───────────────────────────────────────────────────────────
+# -- Author matching -----------------------------------------------------------
+
 
 def _norm(s: str) -> str:
     """Normalise a BibTeX string for fuzzy author comparison.
@@ -49,7 +42,8 @@ def is_target(author: str, last: str, first: str) -> bool:
     return _norm(last) in a and first.lower() in a
 
 
-# ── Author parsing & formatting ───────────────────────────────────────────────
+# -- Author parsing & formatting -----------------------------------------------
+
 
 def split_authors(raw: str) -> list[str]:
     """Split a BibTeX author field on ' and ', normalise to 'First Last'."""
@@ -77,36 +71,37 @@ def format_authors(authors: list[str], last: str, first: str) -> str:
     return ", ".join(parts)
 
 
-# ── Venue abbreviation expansion ──────────────────────────────────────────────
+# -- Venue abbreviation expansion ----------------------------------------------
 
 _ABBREVS = [
-    (r"\bProc\.\s+of\b",  "Proceedings of"),
-    (r"\bProc\.",         "Proceedings"),
-    (r"\bConf\.",         "Conference"),
+    (r"\bProc\.\s+of\b", "Proceedings of"),
+    (r"\bProc\.", "Proceedings"),
+    (r"\bConf\.", "Conference"),
     (r"\bInt(?:'?l)?\.?", "International"),
-    (r"\bSymp\.",         "Symposium"),
-    (r"\bAnn\.",          "Annual"),
-    (r"\bWkshp\.",        "Workshop"),
-    (r"\bWksp\.",         "Workshop"),
-    (r"\bJ\.",            "Journal"),
-    (r"\bTrans\.",        "Transactions"),
-    (r"\bEng\.",          "Engineering"),
-    (r"\bSci\.",          "Science"),
-    (r"\bComput\.",       "Computing"),
-    (r"\bVol\.",          "Volume"),
-    (r"\bNo\.",           "Number"),
+    (r"\bSymp\.", "Symposium"),
+    (r"\bAnn\.", "Annual"),
+    (r"\bWkshp\.", "Workshop"),
+    (r"\bWksp\.", "Workshop"),
+    (r"\bJ\.", "Journal"),
+    (r"\bTrans\.", "Transactions"),
+    (r"\bEng\.", "Engineering"),
+    (r"\bSci\.", "Science"),
+    (r"\bComput\.", "Computing"),
+    (r"\bVol\.", "Volume"),
+    (r"\bNo\.", "Number"),
 ]
 _ABBREV_RE = [(re.compile(pat), repl) for pat, repl in _ABBREVS]
 
 
 def expand_venue(venue: str) -> str:
-    venue = venue.replace("\\ ", " ")   # LaTeX non-breaking space
+    venue = venue.replace("\\ ", " ")  # LaTeX non-breaking space
     for pattern, replacement in _ABBREV_RE:
         venue = pattern.sub(replacement, venue)
     return venue
 
 
-# ── BibTeX loading & filtering ────────────────────────────────────────────────
+# -- BibTeX loading & filtering ------------------------------------------------
+
 
 def load_bib(*paths: Path) -> bibtexparser.bibdatabase.BibDatabase:
     """Concatenate bib files and parse (resolves @String entries)."""
@@ -141,6 +136,7 @@ def group_by_year(pubs: list[dict], limit: int = 5) -> list[dict]:
     Returns [{'year': int, 'pubs': [...]}, ...] descending by year.
     """
     from collections import defaultdict
+
     by_year: dict[int, list] = defaultdict(list)
     for pub in pubs:
         by_year[pub["year"]].append(pub)
@@ -158,9 +154,9 @@ def group_by_year(pubs: list[dict], limit: int = 5) -> list[dict]:
 
 
 _ACM_BADGES = {
-    "available":  "https://www.acm.org/binaries/content/gallery/acm/publications/replication-badges/artifacts_available_dl.jpg",
+    "available": "https://www.acm.org/binaries/content/gallery/acm/publications/replication-badges/artifacts_available_dl.jpg",
     "functional": "https://www.acm.org/binaries/content/gallery/acm/publications/replication-badges/artifacts_evaluated_functional_dl.jpg",
-    "reusable":   "https://www.acm.org/binaries/content/gallery/acm/publications/replication-badges/artifacts_evaluated_reusable_dl.jpg",
+    "reusable": "https://www.acm.org/binaries/content/gallery/acm/publications/replication-badges/artifacts_evaluated_reusable_dl.jpg",
 }
 
 
@@ -169,18 +165,22 @@ def resolve_badge(badge: str) -> str:
     return _ACM_BADGES.get(badge, badge)
 
 
-def parse_publications(bib_files: list[Path], last: str, first: str,
-                       starred: set[str] | None = None,
-                       artifacts: dict[str, dict] | None = None) -> dict:
+def parse_publications(
+    bib_files: list[Path],
+    last: str,
+    first: str,
+    starred: set[str] | None = None,
+    artifacts: dict[str, dict] | None = None,
+) -> dict:
     """
     Return grouped publication data:
-        first_author        – list of year-groups (see group_by_year)
-        coauthor            – list of year-groups
-        first_author_total  – int
-        coauthor_total      – int
+        first_author        - list of year-groups (see group_by_year)
+        coauthor            - list of year-groups
+        first_author_total  - int
+        coauthor_total      - int
     """
     db = load_bib(*bib_files)
-    starred   = starred   or set()
+    starred = starred or set()
     artifacts = artifacts or {}
 
     first_author: list[dict] = []
@@ -200,21 +200,28 @@ def parse_publications(bib_files: list[Path], last: str, first: str,
             continue
 
         pub = {
-            "title":        entry.get("title", "").strip("{}"),
+            "title": entry.get("title", "").strip("{}"),
             "authors_html": format_authors(authors, last, first),
-            "venue":        expand_venue(entry_venue(entry).strip("{}")),
-            "year":         int(entry.get("year", 0) or 0),
-            "doi":          entry.get("doi", "").strip() or None,
-            "entry_type":   entry.get("ENTRYTYPE", "misc"),
-            "bib_key":           entry.get("ID", "ref"),
-            "bib_text":          entry_bib_text(entry),
-            "starred":           entry.get("ID", "") in starred,
-            "artifact_url":      artifacts.get(entry.get("ID", ""), {}).get("url"),
-            "artifact_badge_urls": [resolve_badge(b.strip())
-                                    for b in artifacts.get(entry.get("ID", ""), {}).get("badge", "").split(",")
-                                    if b.strip()],
-            "award_url": ("awards/" + artifacts[entry.get("ID", "")]["award"])
-                         if artifacts.get(entry.get("ID", ""), {}).get("award") else None,
+            "venue": expand_venue(entry_venue(entry).strip("{}")),
+            "year": int(entry.get("year", 0) or 0),
+            "doi": entry.get("doi", "").strip() or None,
+            "entry_type": entry.get("ENTRYTYPE", "misc"),
+            "bib_key": entry.get("ID", "ref"),
+            "bib_text": entry_bib_text(entry),
+            "starred": entry.get("ID", "") in starred,
+            "artifact_url": artifacts.get(entry.get("ID", ""), {}).get("url"),
+            "artifact_badge_urls": [
+                resolve_badge(b.strip())
+                for b in artifacts.get(entry.get("ID", ""), {})
+                .get("badge", "")
+                .split(",")
+                if b.strip()
+            ],
+            "award_url": (
+                ("awards/" + artifacts[entry.get("ID", "")]["award"])
+                if artifacts.get(entry.get("ID", ""), {}).get("award")
+                else None
+            ),
         }
 
         if is_target(authors[0], last, first):
@@ -226,39 +233,44 @@ def parse_publications(bib_files: list[Path], last: str, first: str,
     coauthor.sort(key=lambda p: p["year"], reverse=True)
 
     return {
-        "first_author":       group_by_year(first_author),
-        "coauthor":           group_by_year(coauthor),
+        "first_author": group_by_year(first_author),
+        "coauthor": group_by_year(coauthor),
         "first_author_total": len(first_author),
-        "coauthor_total":     len(coauthor),
+        "coauthor_total": len(coauthor),
     }
 
 
-# ── Markdown filter ───────────────────────────────────────────────────────────
+# -- Markdown filter -----------------------------------------------------------
+
 
 def md_filter(text: str) -> str:
     return markdown.markdown(text.strip(), extensions=["smarty"])
 
 
 def md_inline_filter(text: str) -> str:
-    """Render Markdown inline — strips the surrounding <p>…</p> wrapper."""
+    """Render Markdown inline — strips the surrounding <p>...</p> wrapper."""
     html = markdown.markdown(text.strip(), extensions=["smarty"])
     return re.sub(r"^\s*<p>(.*)</p>\s*$", r"\1", html, flags=re.DOTALL)
 
 
-# ── BibTeX fetch ─────────────────────────────────────────────────────────────
+# -- BibTeX fetch -------------------------------------------------------------
 
-_BIB_BASE = "https://raw.githubusercontent.com/TUBS-ISF/BibTags/refs/heads/main/literature/"
+_BIB_BASE = (
+    "https://raw.githubusercontent.com/TUBS-ISF/BibTags/refs/heads/main/literature/"
+)
 _BIB_FILES = ["MYabrv.bib", "literature.bib"]
+
 
 def fetch_bib_files(root: Path) -> None:
     for name in _BIB_FILES:
         url = _BIB_BASE + name
         dest = root / name
-        print(f"Fetching {url} …")
+        print(f"Fetching {url} ...")
         urllib.request.urlretrieve(url, dest)
 
 
-# ── Main ──────────────────────────────────────────────────────────────────────
+# -- Main ----------------------------------------------------------------------
+
 
 def main() -> None:
     root = Path(__file__).parent
@@ -268,13 +280,13 @@ def main() -> None:
         data = tomllib.load(f)
 
     # Derive author identity from the card section
-    author_name: str = data["card"]["name"]          # e.g. "Tobias Heß"
+    author_name: str = data["card"]["name"]  # e.g. "Tobias Heß"
     name_parts = author_name.split()
-    author_first = name_parts[0]                      # "Tobias"
-    author_last  = name_parts[-1]                     # "Heß"
+    author_first = name_parts[0]  # "Tobias"
+    author_last = name_parts[-1]  # "Heß"
 
-    pub_cfg   = data.get("publications", {})
-    starred   = set(pub_cfg.get("starred", []))
+    pub_cfg = data.get("publications", {})
+    starred = set(pub_cfg.get("starred", []))
     artifacts = {a["key"]: a for a in pub_cfg.get("artifacts", [])}
     data["publications"] = parse_publications(
         [root / "MYabrv.bib", root / "literature.bib"],
