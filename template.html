@@ -52,6 +52,8 @@
           {% if experience %}<li><a href="#experience" title="Experience"><i class="fa-solid fa-briefcase"></i><span class="nav-label">Experience</span></a></li>{% endif %}
           {% if publications.first_author %}<li><a href="#publications" title="Papers"><i class="fa-solid fa-file-lines"></i><span class="nav-label">Papers</span></a></li>{% endif %}
           {% if service %}<li><a href="#service" title="Service"><i class="fa-solid fa-people-group"></i><span class="nav-label">Service</span></a></li>{% endif %}
+          {% if teaching %}<li><a href="#teaching" title="Teaching"><i class="fa-solid fa-chalkboard-teacher"></i><span class="nav-label">Teaching</span></a></li>{% endif %}
+          {% if theses %}<li><a href="#theses" title="Theses"><i class="fa-solid fa-user-graduate"></i><span class="nav-label">Theses</span></a></li>{% endif %}
           {% if projects %}<li><a href="#projects" title="Projects"><i class="fa-solid fa-folder"></i><span class="nav-label">Projects</span></a></li>{% endif %}
           {% if talks %}<li><a href="#talks" title="Talks"><i class="fa-solid fa-microphone"></i><span class="nav-label">Talks</span></a></li>{% endif %}
           {% if education %}<li><a href="#education" title="Education"><i class="fa-solid fa-graduation-cap"></i><span class="nav-label">Education</span></a></li>{% endif %}
@@ -184,6 +186,55 @@
           <div class="service-entry">
             <span class="service-category">{{ s.category }}</span>
             <span>{{ s.entries }}</span>
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+      {% endif %}
+
+      {% if teaching %}
+      <section id="teaching" class="collapsible-section">
+        <div class="section-header">
+          <h2>Teaching</h2>
+          <span class="toggle-icon collapsed">▾</span>
+        </div>
+        <div class="section-body">
+          {% for t in teaching %}
+          <div class="teaching-entry">
+            <span class="teaching-category">{{ t.category }}</span>
+            <span>{{ t.entries }}</span>
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+      {% endif %}
+
+      {% if theses %}
+      <section id="theses" class="collapsible-section">
+        <div class="section-header">
+          <h2>Advised Theses</h2>
+          <span class="toggle-icon collapsed">▾</span>
+        </div>
+        <div class="section-body">
+          {% for group in theses %}
+          <div class="pub-year-group">
+            <div class="pub-year">{{ group.year }}</div>
+            {% for t in group.theses %}
+            <div class="thesis-entry{% if t.starred %} pub-starred{% endif %}">
+              <div class="thesis-title">
+                {%- if t.doi %}<a href="https://doi.org/{{ t.doi }}" target="_blank" rel="noopener">{{ t.title }}</a>
+                {%- else %}{{ t.title }}{% endif %}
+              </div>
+              <div class="thesis-meta">{{ t.author }} &mdash; <span class="thesis-type">{{ t.type }}</span></div>
+              {%- if t.awards %}
+              <div class="thesis-awards">
+                {%- for award in t.awards %}
+                <span class="thesis-award"><i class="fa-solid fa-trophy"></i>{{ award | md_inline | safe }}</span>
+                {%- endfor %}
+              </div>
+              {%- endif %}
+            </div>
+            {% endfor %}
           </div>
           {% endfor %}
         </div>

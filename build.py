@@ -166,7 +166,7 @@ def resolve_badge(badge: str) -> str:
 
 
 def parse_publications(
-    bib_files: list[Path],
+    db: bibtexparser.bibdatabase.BibDatabase,
     last: str,
     first: str,
     starred: set[str] | None = None,
@@ -179,7 +179,6 @@ def parse_publications(
         first_author_total  - int
         coauthor_total      - int
     """
-    db = load_bib(*bib_files)
     starred = starred or set()
     artifacts = artifacts or {}
 
@@ -240,6 +239,70 @@ def parse_publications(
     }
 
 
+# -- Thesis parsing -----------------------------------------------------------
+
+
+def format_thesis_author(raw: str) -> str:
+    """'Last, First' → 'First Last'."""
+    raw = raw.strip()
+    if "," in raw:
+        last, first = raw.split(",", 1)
+        return f"{first.strip()} {last.strip()}"
+    return raw
+
+
+def parse_theses(
+    db: bibtexparser.bibdatabase.BibDatabase,
+    starred: set[str] | None = None,
+    awards: dict[str, list[str]] | None = None,
+) -> list[dict]:
+    """
+    Return theses supervised by TH, grouped by year (desc), sorted by author
+    name within each year.  'nottobepublished' suppresses the DOI link.
+    """
+    starred = starred or set()
+    awards  = awards  or {}
+    theses: list[dict] = []
+
+    for entry in db.entries:
+        tags = entry.get("typo3tags", "")
+        if "SupervisorTH" not in tags:
+            continue
+
+        published = entry.get("comments", "").strip().lower() != "nottobepublished"
+        doi = entry.get("doi", "").strip() if published else None
+
+        raw_author = entry.get("author", "").strip()
+        author = format_thesis_author(raw_author.split(" and ")[0])
+
+        label = entry.get("type", "Thesis").strip() or "Thesis"
+
+        key = entry.get("ID", "")
+        theses.append({
+            "author":  author,
+            "title":   entry.get("title", "").strip("{}"),
+            "type":    label,
+            "year":    int(entry.get("year", 0) or 0),
+            "doi":     doi or None,
+            "starred": key in starred,
+            "awards":  awards.get(key, []),
+        })
+
+    # Group by year descending, within year sort by author name
+    from collections import defaultdict
+    by_year: dict[int, list] = defaultdict(list)
+    for t in theses:
+        by_year[t["year"]].append(t)
+
+    groups = []
+    for year in sorted(by_year.keys(), reverse=True):
+        groups.append({
+            "year":    year,
+            "theses":  sorted(by_year[year], key=lambda t: t["author"].split()[-1]),
+        })
+    return groups
+
+
 # -- Markdown filter -----------------------------------------------------------
 
 
@@ -285,16 +348,18 @@ def main() -> None:
     author_first = name_parts[0]  # "Tobias"
     author_last = name_parts[-1]  # "Heß"
 
+    db = load_bib(root / "MYabrv.bib", root / "literature.bib")
+
     pub_cfg = data.get("publications", {})
     starred = set(pub_cfg.get("starred", []))
     artifacts = {a["key"]: a for a in pub_cfg.get("artifacts", [])}
     data["publications"] = parse_publications(
-        [root / "MYabrv.bib", root / "literature.bib"],
-        last=author_last,
-        first=author_first,
-        starred=starred,
-        artifacts=artifacts,
+        db, last=author_last, first=author_first, starred=starred, artifacts=artifacts,
     )
+    theses_cfg     = data.get("theses", {})
+    theses_starred = set(theses_cfg.get("starred", []))
+    theses_awards  = {a["key"]: a["items"] for a in theses_cfg.get("awards", [])}
+    data["theses"] = parse_theses(db, starred=theses_starred, awards=theses_awards)
 
     env = Environment(
         loader=FileSystemLoader(root),

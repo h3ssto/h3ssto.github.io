@@ -98,6 +98,33 @@ entries  ="GPCE'21 (B), SPLC'21 (B), VaMoS'22 (B), ISSTA'22 (A), SPLC'22 (B), IS
 category = "Other"
 entries  ="PR and Proceedings Chair for VaMoS'23"
 
+# ── Teaching ──────────────────────────────────────────────────────────
+
+[[teaching]]
+category = "2026"
+entries  = "Applied Mathematics (Cryptography and Statistics), Functional Programming, Introduction to Technical Computer Science, Introduction to Operating Systems and Networks, Big Data, Data Engineering and Management, Introduction to LaTeX"
+
+[[teaching]]
+category = "2025"
+entries  = "Introduction to Computer Science (for non-CS students), Paradigms of Programming, Functional Programming, Elements of Discrete Mathematics, Data Engineering and Management"
+
+[[teaching]]
+category = "2024"
+entries  = "Software Engineering Project (Master & Bachelor), Academic Writing, Introduction to LaTeX"
+
+[[teaching]]
+category = "2023"
+entries  = "Software Engineering Project (Master & Bachelor), Academic Writing, Introduction to LaTeX"
+
+[[teaching]]
+category = "2022"
+entries  = "Software Engineering Project (Master & Bachelor), Introduction to LaTeX"
+
+[[teaching]]
+category = "2021"
+entries  = "Functional Programming, Software Engineering Project (Master & Bachelor), Introduction to LaTeX"
+
+
 # ── Projects ─────────────────────────────────────────────────────────────────
 [[projects]]
 name        = "variability.dev"
@@ -114,7 +141,7 @@ starred = ["HMB+:SPLC25", "HSS+:SPLC24"]
 [[publications.artifacts]]
 key   = "HMB+:SPLC25"
 url   = "https://zenodo.org/records/15854995"
-badge = "available, reusable"
+badge = "available, functional, reusable"
 award = "hmb+splc25.png"
 
 
@@ -127,6 +154,14 @@ badge = "available, reusable"
 key   = "HSO+:VaMoS24"
 url   = "https://zenodo.org/records/10303558"
 badge = "available"
+
+# ── Theses (starred keys get gold border, awards as Markdown links) ──────────
+[theses]
+starred = ["Molt24", "Semmler24"]
+
+[[theses.awards]]
+key   = "Molt24"
+items = ["[Best Bachelor's Thesis (SE'26)](https://se2026.inf.unibe.ch/de/tracks/student-research-competition/#gewinner)", "3rd Place Student Research Competition (ICSE'26)"]
 
 # ── Contact ──────────────────────────────────────────────────────────────────
 [contact]

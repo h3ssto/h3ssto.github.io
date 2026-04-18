@@ -66,9 +66,9 @@ $(function () {
   $('.pub-overflow').hide();
   // Hide year groups whose every publication is overflow (no visible entries)
   $('.pub-year-group').each(function () {
-    if ($(this).find('.publication').not('.pub-overflow').length === 0) {
-      $(this).hide();
-    }
+    var hasVisible = $(this).find('.publication').not('.pub-overflow').length > 0
+                  || $(this).find('.thesis-entry').length > 0;
+    if (!hasVisible) $(this).hide();
   });
 
   $(document).on('click', '.pub-show-all', function () {
