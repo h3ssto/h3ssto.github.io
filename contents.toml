@@ -161,7 +161,7 @@ starred = ["Molt24", "Semmler24"]
 
 [[theses.awards]]
 key   = "Molt24"
-items = ["[Best Bachelor's Thesis (SE'26)](https://se2026.inf.unibe.ch/de/tracks/student-research-competition/#gewinner)", "3rd Place Student Research Competition (ICSE'26)"]
+items = ["[Best Bachelor's Thesis (SE'26)](https://se2026.inf.unibe.ch/de/tracks/student-research-competition/#gewinner)", "[3rd Place Student Research Competition (ICSE'26)](https://src.acm.org/winners/2027)"]
 
 # ── Contact ──────────────────────────────────────────────────────────────────
 [contact]
