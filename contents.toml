@@ -33,8 +33,13 @@ institution = "DHBW Heidenheim"
 
 [[experience]]
 period      = "01/2025 - 07/2025"
-role        = "Substitute Teacher (Math)"
+role        = "Substitute Teacher (Mathematics)"
 institution = "Jakob-Friedrich-Schöllkopf-Schule"
+
+[[experience]]
+period      = "01/2025 - 10/2025"
+role        = "External Lecturer (CS, Business Management)"
+institution = "DHBW Heidenheim"
 
 [[experience]]
 period      = "04/2024 - 10/2024"
@@ -88,15 +93,15 @@ notes       = ""
 # ── Academic Service ──────────────────────────────────────────────────────────
 [[service]]
 category = "Journals"
-entries  ="EMSE (A), TOSEM (A*), AUSE (B), SoSyM (B)"
+entries  = "EMSE (A), TOSEM (A*), AUSE (B), SoSyM (B)"
 
 [[service]]
 category = "Conferences"
-entries  ="GPCE'21 (B), SPLC'21 (B), VaMoS'22 (B), ISSTA'22 (A), SPLC'22 (B), ISSTA'23 (A)"
+entries  = "GPCE'21 (B), SPLC'21 (B), VaMoS'22 (B), ISSTA'22 (A), SPLC'22 (B), ISSTA'23 (A), SPLC'25 (B)"
 
 [[service]]
 category = "Other"
-entries  ="PR and Proceedings Chair for VaMoS'23"
+entries  = "PR and Proceedings Chair for VaMoS'23"
 
 # ── Teaching ──────────────────────────────────────────────────────────
 
