@@ -250,7 +250,7 @@
         <div class="section-body">
           {% for project in projects %}
           <div class="project">
-            <div class="project-name">{{ project.name }}</div>
+            <div class="project-name">{%- if project.url %}<a href="{{ project.url }}" target="_blank" rel="noopener">{{ project.name }}</a>{%- else %}{{ project.name }}{% endif -%}</div>
             <div class="project-desc">{{ project.description | md }}</div>
           </div>
           {% endfor %}

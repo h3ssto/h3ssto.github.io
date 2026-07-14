@@ -14,14 +14,13 @@ name        = "Tobias Heß"
 initials    = "TH"
 title       = "Academic Staff"
 affiliation = "DHBW Heidenheim"
-# photo_crop  = "50% 50%"
 
 bio = """
-After graduating with a master's degree in mathematics from the University of Ulm, Germany, I am currently pursuing a PhD in computer science, also at the University of Ulm. 
+After graduating with a master's degree in Mathematics from the University of Ulm, Germany, I am currently pursuing a PhD in computer science, also at the University of Ulm. 
 My reasearch focus is the analysis of configurable (software) systems, typically by means of knowledge compilation, especially binary decision diagrams.
 
 I currently work as a lecturer and system administrator at the [Baden-Wuerttemberg Cooperative State University (DHBW) Heidenheim](https://www.heidenheim.dhbw.de/en/home). 
-Therein, my core responsibility is the creation of interdisciplinary concepts and systems spanning multiple study programs.
+Therein, my core responsibility, besides teaching, is the creation of interdisciplinary concepts and systems across multiple study programs.
 """
 
 # ── Working Experience ────────────────────────────────────────────────────────
@@ -137,6 +136,7 @@ description = "A collection of easy-to-use tools for feature modeling and featur
 
 [[projects]]
 name        = "ddueruem"
+url         = "https://github.com/obddimal/ddueruem"
 description = "A wrapper for feature-model analyses tools and frameworks."
 
 # ── Publications (starred keys get gold border) ───────────────────────────────
